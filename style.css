@@ -74,30 +74,6 @@ section#home.active-tab {
     padding: 120px 0 80px;
 }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 10000;
-    pointer-events: none;
-}
-
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--main-color);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--main-color);
-    transition: width .2s, height .2s, border-color .2s;
-}
 
 /* Navbar */
 nav {
