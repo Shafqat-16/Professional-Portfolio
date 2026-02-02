@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Shafqat Ashraf | Embedded & IoT Expert</title>
+    <meta name="description"
+        content="Professional portfolio of Muhammad Shafqat Ashraf - Embedded Firmware Engineer, IoT Specialist, and AI/ML enthusiast.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">M.<span>Shafqat</span></div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h5 class="reveal">Embedded AI Specialist</h5>
+                    <h1 class="reveal">Muhammad Shafqat <span>Ashraf</span></h1>
+                    <h2 class="reveal">Architecting the Bridge Between <span>Silicon & Intelligence</span></h2>
+                    <p class="reveal">Specializing in high-performance Embedded Systems and their integration with
+                        Artificial Intelligence. I engineer deterministic firmware and deploy TinyML models that
+                        transform raw sensor data into actionable edge intelligence.</p>
+                    <ul class="hero-highlights reveal">
+                        <li class="tech-insight" data-title="Integrated AI Firmware"
+                            data-desc="Developing hardware-optimized execution environments for Embedded AI. Implementing custom kernels and memory-efficient inference engines directly in C++ to achieve real-time, low-power intelligence at the edge.">
+                            <i class="fas fa-microchip"></i> AI Firmware Arsenal
+                        </li>
+                        <li class="tech-insight" data-title="Deterministic RTOS"
+                            data-desc="Mastery of task scheduling, mutexes, and semaphores in Zephyr and FreeRTOS. Ensuring mission-critical reliability through priority-aware execution and interrupt-driven architectures.">
+                            <i class="fas fa-clock"></i> Deterministic RTOS
+                        </li>
+                        <li class="tech-insight" data-title="Embedded AI & TinyML"
+                            data-desc="Deploying optimized neural networks on ARM Cortex-M. Utilizing quantization and pruning to fit complex pattern recognition models (TensorFlow Lite Micro) within tight memory constraints.">
+                            <i class="fas fa-brain"></i> TinyML Integration
+                        </li>
+                    </ul>
+                    <div class="hero-btns reveal">
+                        <a href="#projects" class="btn primary">Explore My Work</a>
+                        <a href="#contact" class="btn secondary">Get In Touch</a>
+                    </div>
+
+                    <div class="hero-mission reveal">
+                        <span class="mission-tag">Technical Mission</span>
+                        <p>To architect fault-tolerant, intelligence-driven systems that solve complex industrial
+                            challenges through hardware-software synergy and deterministic engineering.</p>
+                    </div>
+                </div>
+                <div class="hero-image-container reveal">
+                    <div class="hero-image">
+                        <img src="profile.jpg" alt="Muhammad Shafqat Ashraf">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Hardware & Software <span>Arsenal</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="expertise-grid">
+                    <div class="expertise-card reveal tech-insight" data-title="Advanced Firmware Engineering"
+                        data-desc="Mastery over the silicon-software interface. Implementing direct Bare-metal HAL (Hardware Abstraction Layers), optimizing Interrupt Service Routine (ISR) latency, and managing DMA (Direct Memory Access) for zero-CPU-overhead data transfers. Expertise in customizing Linker Scripts for precise memory mapping and designing secure Dual-Slot Bootloaders for mission-critical updates.">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Firmware Engineering</h3>
+                        <p>Low-level driver development (UART, SPI, I2C), memory optimization, and bootloader design for
+                            ARM Cortex-M and nRF series.</p>
+                    </div>
+                    <div class="expertise-card reveal tech-insight" data-title="RTOS & Deterministic Multitasking"
+                        data-desc="Architecting robust multi-threaded environments using Zephyr and FreeRTOS. Specializing in Deterministic Scheduling to ensure hard real-time execution. Expert implementation of Inter-Process Communication (IPC) via message queues and semaphores, while utilizing Mutex Priority Inheritance to prevent priority inversion in complex system architectures.">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>RTOS & Multitasking</h3>
+                        <p>Specializing in Zephyr RTOS and FreeRTOS for multi-threaded applications, ensures high
+                            reliability and real-time performance.</p>
+                    </div>
+                    <div class="expertise-card reveal tech-insight" data-cloud="true"
+                        data-title="Industrial IoT & Connectivity"
+                        data-desc="Deploying resilient IoT ecosystems using narrowband and long-range protocols like NB-IoT and LoRaWAN. Implementing MQTT-SN for resource-constrained nodes and ensuring end-to-end security via TLS/DTLS encryption. Focused on Edge-Computing Gateways that perform local data aggregation to reduce cloud-bandwidth costs and latency.">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <h3>Industrial IoT</h3>
+                        <p>End-to-end IoT solutions using NB-IoT, LoRaWAN, and BLE. Secure cloud integration and OTA
+                            firmware updates.</p>
+                    </div>
+                    <div class="expertise-card reveal tech-insight" data-cloud="true"
+                        data-title="Embedded AI & ML Integration"
+                        data-desc="Transforming embedded devices into intelligent edge nodes. Utilizing TensorFlow Lite Micro for on-device inference. Implementing model optimizations such as Tensor Quantization (converting 32-bit to 8-bit) and Model Pruning to fit high-accuracy neural networks within the strict KB-range RAM/Flash constraints of ARM microcontrollers.">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI & ML Integration</h3>
+                        <p>Developing data-driven models for predictive maintenance and health diagnostics using
+                            Python-based ML frameworks and time-series analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Professional <span>Profile</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I don't just write code; I breathe life into silicon. As a dedicated **Embedded Firmware
+                            Engineer**, I believe that behind every line of critical code is a human need for safety,
+                            efficiency, and intelligence. My passion lies in creating systems that work flawlessly when
+                            the world isn't watching—the deterministic engines that power our future.</p>
+                        <p>With a focus on **heart-driven engineering**, I approach every hardware-bring-up as a mission
+                            to bridge the physical and digital worlds. Whether it's optimizing a battery-powered IoT
+                            node to last for years or architecting an AI diagnostic tool that empowers healthcare, I am
+                            committed to technical excellence that makes a real difference.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h3>3+</h3>
+                                <p>Years Industry Exp.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>20+</h3>
+                                <p>Hardware Bring-ups</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100%</h3>
+                                <p>Reliability Focus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Work <span>Experience</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="timeline">
+                    <!-- Experience 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">OCT 2025 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Embedded Firmware Engineer</h3>
+                            <h4>Techanzy Limited - Lahore, Pakistan</h4>
+                            <ul>
+                                <li>Developed and optimized embedded firmware in C/C++ for real-time
+                                    microcontroller-based systems.</li>
+                                <li>Implemented RTOS-based applications using Zephyr, including task scheduling and
+                                    inter-process communication.</li>
+                                <li>Developed and maintained low-level peripheral drivers (GPIO, UART, SPI, I2C, ADC).
+                                </li>
+                                <li>Debugged and validated firmware using hardware debuggers and laboratory instruments.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">JULY 2025 - OCT 2025</div>
+                        <div class="timeline-content">
+                            <h3>Process Engineer</h3>
+                            <h4>Xiaomi Mi Technology - Lahore, Pakistan</h4>
+                            <ul>
+                                <li>Coordinated cross-functional engineering teams to optimize manufacturing processes,
+                                    technical workflows, and system efficiency.</li>
+                                <li>Performed system-level analysis and troubleshooting to identify bottlenecks and
+                                    support continuous process optimization.</li>
+                                <li>Developed and maintained technical, process, and compliance documentation.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Experience 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">AUG 2024 - JULY 2025</div>
+                        <div class="timeline-content">
+                            <h3>Electrical Engineer (Manufacturing Excellence)</h3>
+                            <h4>Challenge Apparels Limited - Lahore, Pakistan</h4>
+                            <ul>
+                                <li>Supported embedded hardware testing, PCB validation, and electronic system
+                                    troubleshooting.</li>
+                                <li>Assisted in firmware bring-up activities and peripheral-level validation.</li>
+                                <li>Prepared technical documentation, feasibility notes, and system improvement reports.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Core <span>Competencies</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microchip"></i> Electronics & Circuit Design</h3>
+                        <ul>
+                            <li>PCB Layouts</li>
+                            <li>Schematic Design</li>
+                            <li>Troubleshooting</li>
+                            <li>nRF Microcontroller Integration</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-network-wired"></i> Embedded Systems & IoT</h3>
+                        <ul>
+                            <li>Arduino, ESP8266, ESP32</li>
+                            <li>nRF52/nRF9160</li>
+                            <li>Raspberry Pi 4.0</li>
+                            <li>BLE, LoRa, NB-IoT</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming & Tools</h3>
+                        <ul>
+                            <li>C / C++</li>
+                            <li>Python / ML</li>
+                            <li>MATLAB</li>
+                            <li>Altium Designer / LTSpice</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cog"></i> Systems & Operations</h3>
+                        <ul>
+                            <li>Signal Processing</li>
+                            <li>Predictive Maintenance</li>
+                            <li>IoT Integration</li>
+                            <li>Wireless Protocols</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Placeholder) -->
+        <section id="projects" class="projects section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured <span>Projects</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="project1.png" alt="IoT Monitoring System">
+                            <div class="project-overlay">
+                                <a href="javascript:void(0)" class="btn mini view-project"
+                                    data-title="Smart IoT Monitoring System"
+                                    data-tech="nRF9160 (Cortex-M33), NB-IoT, AWS IoT, C++"
+                                    data-desc="Architected a low-power industrial telemetry solution using the nRF9160 SiP. Implemented ultra-low-power sleep cycles (<10uA) with periodic MQTT publishing. Integrated secure boot procedures and FOTA (Firmware Over-the-Air) updates for remote fleet management. Optimized sensor data aggregation using DMA and circular buffers to ensure zero-loss telemetry during network handovers.">View
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Smart IoT Monitoring System</h3>
+                            <p>Real-time sensor data visualization using NB-IoT for industrial assets.</p>
+                            <div class="project-tags">
+                                <span>nRF9160</span>
+                                <span>C++</span>
+                                <span>NB-IoT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                                alt="Embedded DSP Processor">
+                            <div class="project-overlay">
+                                <a href="javascript:void(0)" class="btn mini view-project"
+                                    data-title="Embedded DSP Engine"
+                                    data-tech="STM32F4 (Cortex-M4F), CMSIS-DSP, I2S, DMA"
+                                    data-desc="Developed a real-time signal processing pipelined on STM32 hardware. Engineered optimized FIR and IIR filter stages using ARM CMSIS-DSP library to achieve <5ms latency. Utilized DMA for high-speed audio transmission via I2S, offloading the CPU by 40%. Implemented an FFT-based spectral analyzer for real-time monitoring of machine vibration signatures, enabling predictive maintenance.">View
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Embedded DSP Engine</h3>
+                            <p>Optimized FIR filter and spectral analysis implementation on STM32.</p>
+                            <div class="project-tags">
+                                <span>STM32</span>
+                                <span>MATLAB</span>
+                                <span>DSP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="project4.png" alt="Process Optimization">
+                            <div class="project-overlay">
+                                <a href="javascript:void(0)" class="btn mini view-project"
+                                    data-title="Industrial Cloud-Edge Workflow"
+                                    data-tech="AWS IoT Core, Python, MQTT, Edge Computing"
+                                    data-desc="Architected an end-to-end cloud-integrated workflow for industrial manufacturing. Implemented edge-to-cloud synchronization for real-time throughput monitoring using AWS IoT Core. Developed Python scripts for anomaly detection at the edge, reducing cloud latency and bandwidth costs by 60%. Successfully integrated legacy ERP systems with modern cloud-native telemetry pipelines.">View
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Cloud-Edge Manufacturing Workflow</h3>
+                            <p>End-to-end industrial automation with AWS IoT Core integration.</p>
+                            <div class="project-tags">
+                                <span>Cloud</span>
+                                <span>Python</span>
+                                <span>MQTT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="project3.png" alt="Smart Foot Weight Analytics">
+                            <div class="project-overlay">
+                                <a href="javascript:void(0)" class="btn mini view-project"
+                                    data-title="Smart Foot Weight Analytics"
+                                    data-tech="Machine Learning, Python, Signal Processing, IoT Sensors"
+                                    data-desc="Architected a data-driven health monitoring system analyzing foot pressure patterns for early diagnosis. Developed a Python-based ML pipeline for real-time feature extraction (total load, center of pressure, imbalance indices) from force sensors. Implemented classification models to detect postural imbalances and indicators for diabetic foot. The system replaces expensive clinical equipment with a modular, scalable IoT architecture.">View
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Health Diagnosis AI (Foot Analytics)</h3>
+                            <p>ML-powered pressure pattern analysis for early musculoskeletal diagnosis.</p>
+                            <div class="project-tags">
+                                <span>AI/ML</span>
+                                <span>Python</span>
+                                <span>Diagnostic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2><span>Education</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="education-grid">
+                    <div class="edu-card">
+                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="edu-info">
+                            <h3>Bachelor of Electrical Engineering</h3>
+                            <p>University of Engineering and Technology Lahore</p>
+                            <span>2020 - 2024</span>
+                        </div>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-icon"><i class="fas fa-school"></i></div>
+                        <div class="edu-info">
+                            <h3>Intermediate (Pre-Engineering)</h3>
+                            <p>Punjab Daanish Boys School DG Khan</p>
+                            <span>2018 - 2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In <span>Touch</span></h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info-card reveal">
+                        <h3>Let's <span>Connect</span></h3>
+                        <p>Currently open to new projects and engineering collaborations. If you're looking for a
+                            partner to architect your next embedded solution, reach out below.</p>
+
+                        <div class="contact-methods">
+                            <div class="contact-method-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span>Email Me</span>
+                                    <p>m.shafqat1613@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-method-item">
+                                <i class="fab fa-linkedin"></i>
+                                <div>
+                                    <span>LinkedIn</span>
+                                    <p><a href="https://linkedin.com/in/muhammad-shafqat-ashraf/"
+                                            target="_blank">muhammad-shafqat-ashraf</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-method-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span>Direct Line</span>
+                                    <p>+92-323-8901372</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form reveal">
+                        <div class="input-group">
+                            <input type="text" placeholder="Your Name" required>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Your Email" required>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
+                            <span class="focus-border"></span>
+                        </div>
+                        <button type="submit" class="btn primary submit-btn">Send Mission Brief <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Muhammad Shafqat Ashraf. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/shafqat-ashraf" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/muhammad-shafqat-ashraf/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Project Title</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modal-tech-stack" class="modal-tech">Tech Stack</div>
+                <h3>Technical Specification</h3>
+                <p id="modal-description">Detailed description goes here...</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#contact" class="btn primary">Start Technical Inquiry</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
