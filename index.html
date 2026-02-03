@@ -530,9 +530,16 @@
                             <span>Signal Processing</span>
                             <span>Edge Computing</span>
                         </div>
-                        <p><strong>Workflow:</strong> Sensory Data Acquisition (Signal Filtering) → Feature Extraction
-                            (Center
-                            of Pressure) → ML Classification (Postural Diagnostics) → Real-time UI Visualization.</p>
+                        <p><strong>System Workflow:</strong>
+                            <br>• <strong>Data Acquisition:</strong> High-density Piezoresistive sensor array captures
+                            dynamic load.
+                            <br>• <strong>Analytics:</strong> Real-time extraction of CoP (Center of Pressure)
+                            trajectories and load symmetry indices.
+                            <br>• <strong>ML Diagnosis:</strong> Neural network classification identifies
+                            musculoskeletal abnormalities and early-stage neuropathy indicators.
+                            <br>• <strong>Output:</strong> Clinical-grade gait reports visualized via a secure Bluetooth
+                            dashboard.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -548,65 +555,112 @@
                 <div class="projects-grid">
                     <div class="project-card reveal">
                         <div class="project-img">
-                            <img src="project1.png" alt="IoT Monitoring System">
+                            <img src="project1.png" alt="Smart IoT Monitoring System - nRF9160">
                             <div class="project-overlay">
                                 <a href="javascript:void(0)" class="btn mini view-project"
-                                    data-title="Smart IoT Monitoring System"
-                                    data-tech="nRF9160 (Cortex-M33), NB-IoT, AWS IoT, C++"
-                                    data-desc="Architected a low-power industrial telemetry solution using the nRF9160 SiP. Implemented ultra-low-power sleep cycles (<10uA) with periodic MQTT publishing. Integrated secure boot procedures and FOTA (Firmware Over-the-Air) updates for remote fleet management. Optimized sensor data aggregation using DMA and circular buffers to ensure zero-loss telemetry during network handovers.">View
-                                    Details</a>
+                                    data-title="Industrial smart IoT Monitoring System"
+                                    data-tech="Zephyr RTOS, NB-IoT, Power Optimization, C++"
+                                    data-desc="Architected an industrial telemetry solution using nRF9160 SiP. Techniques: Implemented ultra-low-power sleep cycles (<10uA) with periodic wake-ups. Utilized Zephyr RTOS for deterministic multi-threading. Integrated FOTA (Firmware Over-the-Air) for remote updates and AES-256 for secure data transmission. Optimized data buffering using circular queues to prevent data loss during network latency.">View
+                                    Technical Breakdown</a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3>Smart IoT Monitoring System</h3>
-                            <p>Real-time sensor data visualization using NB-IoT for industrial assets.</p>
+                            <p>Low-power industrial telemetry via NB-IoT & Zephyr RTOS.</p>
                             <div class="project-tags">
                                 <span>nRF9160</span>
-                                <span>C++</span>
-                                <span>NB-IoT</span>
+                                <span>Zephyr</span>
+                                <span>Power Optim.</span>
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card reveal">
                         <div class="project-img">
                             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
-                                alt="Embedded DSP Processor">
+                                alt="Embedded DSP Processor - STM32">
                             <div class="project-overlay">
                                 <a href="javascript:void(0)" class="btn mini view-project"
-                                    data-title="Embedded DSP Engine"
-                                    data-tech="STM32F4 (Cortex-M4F), CMSIS-DSP, I2S, DMA"
-                                    data-desc="Developed a real-time signal processing pipelined on STM32 hardware. Engineered optimized FIR and IIR filter stages using ARM CMSIS-DSP library to achieve <5ms latency. Utilized DMA for high-speed audio transmission via I2S, offloading the CPU by 40%. Implemented an FFT-based spectral analyzer for real-time monitoring of machine vibration signatures, enabling predictive maintenance.">View
-                                    Details</a>
+                                    data-title="Embedded Real-Time DSP Engine"
+                                    data-tech="CMSIS-DSP, STM32F4, FFT, DMA, I2S"
+                                    data-desc="Engineered a high-performance signal processing pipe on STM32. Techniques: Utilized ARM CMSIS-DSP for hardware-accelerated FIR/IIR filtering. Implemented FFT-based spectral analysis for vibration monitoring. Configured I2S with DMA for zero-CPU-overhead audio capturing. Achieved <5ms processing latency, making it ideal for predictive maintenance systems.">View
+                                    Technical Breakdown</a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3>Embedded DSP Engine</h3>
-                            <p>Optimized FIR filter and spectral analysis implementation on STM32.</p>
+                            <p>Real-time vibration analysis and spectral filtering on STM32.</p>
                             <div class="project-tags">
                                 <span>STM32</span>
-                                <span>MATLAB</span>
                                 <span>DSP</span>
+                                <span>FFT</span>
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card reveal">
                         <div class="project-img">
-                            <img src="project4.png" alt="Process Optimization">
+                            <img src="project4.png" alt="Industrial Workflow - AWS IoT">
                             <div class="project-overlay">
                                 <a href="javascript:void(0)" class="btn mini view-project"
-                                    data-title="Industrial Cloud-Edge Workflow"
-                                    data-tech="AWS IoT Core, Python, MQTT, Edge Computing"
-                                    data-desc="Architected an end-to-end cloud-integrated workflow for industrial manufacturing. Implemented edge-to-cloud synchronization for real-time throughput monitoring using AWS IoT Core. Developed Python scripts for anomaly detection at the edge, reducing cloud latency and bandwidth costs by 60%. Successfully integrated legacy ERP systems with modern cloud-native telemetry pipelines.">View
-                                    Details</a>
+                                    data-title="Cloud-Edge Industrial Workflow"
+                                    data-tech="AWS IoT, Python, MQTT, Edge Computing"
+                                    data-desc="Architected a scalable manufacturing workflow. Techniques: Implemented Edge data filtering to reduce cloud ingestion costs by 60%. Configured AWS IoT Core rules for real-time alerting. Integrated Python-based reasoning engines at the gateway to detect throughput anomalies locally. Orchestrated secure MQTT-SN communication for battery-powered sensor nodes.">View
+                                    Technical Breakdown</a>
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3>Cloud-Edge Manufacturing Workflow</h3>
-                            <p>End-to-end industrial automation with AWS IoT Core integration.</p>
+                            <h3>Cloud-Edge Manufacturing</h3>
+                            <p>Scalable industrial telemetry with edge-based anomaly detection.</p>
                             <div class="project-tags">
-                                <span>Cloud</span>
+                                <span>AWS IoT</span>
                                 <span>Python</span>
-                                <span>MQTT</span>
+                                <span>Edge AI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="project3.png" alt="Smart Foot Analytics - nRF52">
+                            <div class="project-overlay">
+                                <a href="javascript:void(0)" class="btn mini view-project"
+                                    data-title="Smart Foot: Health Diagnostic System"
+                                    data-tech="TinyML, nRF52, Force Sensors, Python/ML"
+                                    data-desc="Developing a diagnostic system for biomechanical health. Techniques: Utilized FSR matrix sensors for pressure mapping. Implemented gait-cycle feature extraction (total load, CoP). Deployed a quantized TinyML model on nRF52 to detect postural imbalances and early diabetic foot indicators. Designed a Bluetooth bridge for real-time clinical visualization.">View
+                                    Technical Breakdown</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Smart Foot Analytics</h3>
+                            <p>Diagnostic AI for gait analysis and musculoskeletal health.</p>
+                            <div class="project-tags">
+                                <span>TinyML</span>
+                                <span>Health-Tech</span>
+                                <span>nRF52</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+                                alt="The AEyes - Raspberry Pi 4.0">
+                            <div class="project-overlay">
+                                <a href="javascript:void(0)" class="btn mini view-project"
+                                    data-title="The AEyes: AI Voice Assistive Agents"
+                                    data-tech="Raspberry Pi 4.0, STT/TTS, OpenAI/LLM, Python"
+                                    data-desc="Architected a physical embodiment for AI voice assistants. Techniques: Deployed a full-duplex conversational pipeline on Raspberry Pi 4.0. Implemented custom Wake-Word detection (Porcupine) and Whisper-based Speech-to-Text. Integrated high-reasoning LLMs for assistive decision making. Designed an interactive physical 'Eye' enclosure that responds to user intent in real-time.">View
+                                    Technical Breakdown</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>The AEyes Assistive AI</h3>
+                            <p>Deploying conversational AI agents into physical hardware nodes.</p>
+                            <div class="project-tags">
+                                <span>R-Pi 4.0</span>
+                                <span>LLM</span>
+                                <span>Voice AI</span>
                             </div>
                         </div>
                     </div>
