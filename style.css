@@ -832,8 +832,8 @@ section#home.active-tab {
 /* Contact Overhaul */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     margin-top: 50px;
 }
 
