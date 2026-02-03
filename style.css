@@ -33,24 +33,6 @@ body {
     line-height: 1.6;
 }
 
-/* Tabbed Navigation Logic */
-section {
-    display: none;
-    animation: fadeIn 0.5s ease;
-    min-height: 100vh;
-}
-
-section#home {
-    display: flex;
-}
-
-section.active-tab {
-    display: block;
-}
-
-section#home.active-tab {
-    display: flex;
-}
 
 @keyframes fadeIn {
     from {
@@ -444,6 +426,84 @@ nav .container {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--gray-color);
+}
+
+/* Workflow Section */
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+    position: relative;
+}
+
+.workflow-step {
+    text-align: center;
+    position: relative;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.workflow-step:hover {
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+    background: rgba(6, 182, 212, 0.05);
+}
+
+.step-num {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+    color: var(--bg-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 auto 25px;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.workflow-step h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.workflow-step p {
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+/* Tab Transition Enhancement */
+section {
+    display: none;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+section.active-tab {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+section#home.active-tab {
+    display: flex;
+}
+
+/* Section Header Update */
+.section-header p {
+    color: var(--gray-color);
+    max-width: 600px;
+    margin: 20px auto 0;
+    font-style: italic;
 }
 
 /* Timeline */
@@ -880,5 +940,51 @@ footer .container {
 
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Telemetry Bar */
+.telemetry-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(3, 7, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--glass-border);
+    padding: 8px 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.telemetry-track {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollTelemetry 30s linear infinite;
+    gap: 50px;
+}
+
+.telemetry-track span {
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--main-color);
+    letter-spacing: 1px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+@keyframes scrollTelemetry {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 991px) {
+    .telemetry-bar {
+        display: none;
     }
 }
