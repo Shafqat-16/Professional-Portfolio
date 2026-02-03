@@ -42,6 +42,13 @@ document.addEventListener('click', (e) => {
         const targetId = anchor.getAttribute('href').substring(1);
         if (document.getElementById(targetId)) {
             e.preventDefault();
+
+            // Close modal if it's open
+            if (modal.style.display === "block") {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+
             switchTab(targetId);
         }
     }
