@@ -1045,6 +1045,32 @@ footer .container {
     }
 }
 
+/* Certifications & Languages */
+.cert-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cert-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--gray-color);
+}
+
+.cert-list i {
+    color: var(--main-color);
+    font-size: 20px;
+}
+
+.lang-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* Telemetry Bar */
 .telemetry-bar {
     position: fixed;
