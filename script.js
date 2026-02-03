@@ -78,6 +78,12 @@ document.querySelectorAll(".view-project").forEach(btn => {
 // Handle Hero Tech Insight Clicks
 document.querySelectorAll(".tech-insight").forEach(item => {
     item.addEventListener("click", () => {
+        // If it's an expertise card, go to contact page directly
+        if (item.classList.contains('expertise-card')) {
+            switchTab('contact');
+            return;
+        }
+
         modalTitle.innerText = item.getAttribute("data-title");
         modalTech.innerText = "Technical Specialization";
         modalDesc.innerText = item.getAttribute("data-desc");
