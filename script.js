@@ -82,17 +82,11 @@ document.querySelectorAll(".view-project").forEach(btn => {
     });
 });
 
-// Handle Hero Tech Insight Clicks
+// Handle Hero & Expertise Tech Insight Clicks
 document.querySelectorAll(".tech-insight").forEach(item => {
     item.addEventListener("click", () => {
-        // If it's an expertise card, go to contact page directly
-        if (item.classList.contains('expertise-card')) {
-            switchTab('contact');
-            return;
-        }
-
         modalTitle.innerText = item.getAttribute("data-title");
-        modalTech.innerText = "Technical Specialization";
+        modalTech.innerText = `Focus: ${item.getAttribute("data-tech")}`;
         modalDesc.innerText = item.getAttribute("data-desc");
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
