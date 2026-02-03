@@ -1137,6 +1137,104 @@ footer .container {
     gap: 10px;
 }
 
+/* Featured Special Section */
+.featured-project {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(15, 23, 42, 0.2) 100%);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.featured-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.featured-content .problem-box {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid #ef4444;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 0 12px 12px 0;
+}
+
+.featured-content .solution-box {
+    background: rgba(34, 197, 94, 0.1);
+    border-left: 4px solid #22c55e;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 0 12px 12px 0;
+}
+
+.featured-tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.featured-tech-row span {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: 'Space Grotesk', monospace;
+}
+
+/* Industries Section */
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.industry-card {
+    background: var(--glass-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.industry-card:hover {
+    border-color: var(--main-color);
+    background: rgba(6, 182, 212, 0.05);
+    transform: translateY(-10px);
+}
+
+.industry-card i {
+    font-size: 40px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.industry-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.industry-card p {
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+/* Responsive adjust */
+@media (max-width: 991px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Telemetry Bar */
 .telemetry-bar {
     position: fixed;
