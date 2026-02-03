@@ -1109,6 +1109,39 @@ footer .container {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px !important;
+        align-items: center;
+    }
+
+    .h-stat {
+        text-align: center;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .featured-content {
+        text-align: center;
+    }
+
+    .featured-tech-row {
+        justify-content: center;
+    }
+
+    .featured-content .problem-box,
+    .featured-content .solution-box {
+        border-right: 4px solid #ef4444;
+        border-radius: 12px;
+    }
+
+    .featured-content .solution-box {
+        border-right-color: #22c55e;
+    }
 }
 
 /* Certifications & Languages */
