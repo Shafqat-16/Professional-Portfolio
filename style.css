@@ -450,9 +450,9 @@ nav .container {
 }
 
 .pillar {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 30px;
-    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.4);
+    padding: 35px;
+    border-radius: 20px;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
 }
@@ -460,26 +460,38 @@ nav .container {
 .pillar:hover {
     background: rgba(6, 182, 212, 0.05);
     border-color: var(--main-color);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
-.pillar i {
-    font-size: 30px;
+.pillar-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.pillar-icon i {
+    font-size: 24px;
     color: var(--main-color);
-    margin-bottom: 20px;
 }
 
-.pillar h4 {
-    font-size: 18px;
-    margin-bottom: 12px;
+.pillar h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
     color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .pillar p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--gray-color);
-    line-height: 1.6;
+    line-height: 1.7;
 }
+
 
 .about-stats {
     display: grid;
