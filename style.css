@@ -133,7 +133,6 @@ nav .container {
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
 }
 
 .hero::before {
@@ -151,7 +150,7 @@ nav .container {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 100px;
-    padding: 180px 0 140px;
+    padding: 140px 40px 100px;
     align-items: center;
 }
 
