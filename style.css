@@ -150,14 +150,14 @@ nav .container {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 100px;
-    padding: 140px 0 100px;
+    padding: 180px 0 140px;
     align-items: center;
 }
 
 .hero-credibility {
     font-size: 13px;
     color: var(--main-color);
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -176,14 +176,14 @@ nav .container {
 .hero-role {
     font-size: 32px;
     color: var(--gray-color);
-    margin-bottom: 35px;
+    margin-bottom: 40px;
     font-weight: 500;
 }
 
 .hero-desc {
     font-size: 18px;
     color: var(--gray-color);
-    margin-bottom: 45px;
+    margin-bottom: 60px;
     max-width: 580px;
     line-height: 1.7;
     opacity: 0.85;
