@@ -72,21 +72,31 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h5 class="reveal">Embedded AI Specialist</h5>
-                    <h1 class="reveal">Muhammad Shafqat <span>Ashraf</span></h1>
-                    <h2 class="reveal">Architecting the Bridge Between <span>Silicon & Intelligence</span></h2>
-                    <p class="reveal">Architecting mission-critical embedded systems at the intersection of firmware and
+            <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div class="hero-header-section reveal">
+                    <div class="hero-image-container" style="margin-bottom: 30px;">
+                        <div class="hero-image" style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 4px solid var(--main-color); box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);">
+                            <img src="profile.jpg" alt="Muhammad Shafqat Ashraf - Embedded AI & Firmware Engineer" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <h5 class="reveal" style="margin-bottom: 10px;">Embedded AI Specialist</h5>
+                    <h1 class="reveal" style="font-size: 64px;">Muhammad Shafqat <span>Ashraf</span></h1>
+                    <h2 class="reveal" style="font-size: 24px; margin-bottom: 30px;">Architecting the Bridge Between <span>Silicon & Intelligence</span></h2>
+                </div>
+
+                <div class="hero-description-section" style="max-width: 800px; margin: 0 auto;">
+                    <p class="reveal" style="font-size: 18px; color: var(--gray-color); line-height: 1.8; margin-bottom: 40px;">
+                        Architecting mission-critical embedded systems at the intersection of firmware and
                         artificial intelligence. I specialize in developing deterministic real-time architectures and
-                        deploying
-                        hardware-optimized TinyML models to transform raw signals into autonomous edge intelligence. My
+                        deploying hardware-optimized TinyML models to transform raw signals into autonomous edge intelligence. My
                         approach focuses on modular, scalable designs that bridge the gap between initial prototyping
-                        and industrial-grade production.</p>
-                    <ul class="hero-highlights reveal">
+                        and industrial-grade production.
+                    </p>
+                    
+                    <ul class="hero-highlights reveal" style="justify-content: center; margin-bottom: 40px;">
                         <li class="tech-insight" data-title="Integrated AI Firmware" data-tech="C++, CMSIS-DSP, DMA"
                             data-desc="Developing hardware-optimized execution environments for Embedded AI. Implementing custom kernels and memory-efficient inference engines directly in C++ to achieve real-time, low-power intelligence at the edge.">
-                            <i class="fas fa-microchip"></i> AI Firmware Arsenal
+                            <i class="fas fa-microchip"></i> AI Firmware
                         </li>
                         <li class="tech-insight" data-title="Deterministic RTOS" data-tech="Zephyr, FreeRTOS, IPC"
                             data-desc="Mastery of task scheduling, mutexes, and semaphores in Zephyr and FreeRTOS. Ensuring mission-critical reliability through priority-aware execution and interrupt-driven architectures.">
@@ -95,48 +105,36 @@
                         <li class="tech-insight" data-title="Embedded AI & TinyML"
                             data-tech="TensorFlow Lite, Quantization"
                             data-desc="Deploying optimized neural networks on ARM Cortex-M. Utilizing quantization and pruning to fit complex pattern recognition models (TensorFlow Lite Micro) within tight memory constraints.">
-                            <i class="fas fa-brain"></i> TinyML Integration
+                            <i class="fas fa-brain"></i> TinyML
                         </li>
                     </ul>
-                    <div class="hero-btns reveal">
+
+                    <div class="hero-btns reveal" style="justify-content: center; margin-bottom: 50px;">
                         <a href="#projects" class="btn primary">View Technical Case Studies</a>
                         <a href="#contact" class="btn secondary">Start Project Inquiry</a>
                     </div>
+                </div>
 
-                    <div class="hero-mission reveal">
-                        <span class="mission-tag">Technical Mission</span>
-                        <p>To architect fault-tolerant, intelligence-driven systems that solve complex industrial
-                            challenges through hardware-software synergy and deterministic engineering.</p>
+                <div class="hero-footer-stats reveal" style="width: 100%; max-width: 800px;">
+                    <div class="hero-mission-minimal reveal" style="margin-bottom: 40px; padding: 20px; border-left: 2px solid var(--main-color); background: rgba(6, 182, 212, 0.03); border-radius: 0 12px 12px 0; text-align: left;">
+                         <span class="mission-tag" style="font-size: 10px; opacity: 0.8;">OUR CORE PRINCIPLE</span>
+                         <p style="font-style: italic; font-size: 14px; color: var(--gray-color); margin: 0;">Executing zero-latency intelligence on resource-constrained hardware.</p>
                     </div>
 
                     <div class="hero-stats reveal"
-                        style="display: flex; gap: 40px; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05);">
+                        style="display: flex; gap: 40px; justify-content: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05);">
                         <div class="h-stat">
-                            <span
-                                style="display: block; font-size: 24px; font-weight: 800; color: var(--main-color);">100%</span>
-                            <span
-                                style="font-size: 12px; color: var(--gray-color); text-transform: uppercase; letter-spacing: 1px;">Deterministic
-                                Firmware</span>
+                            <span style="display: block; font-size: 24px; font-weight: 800; color: var(--main-color);">100%</span>
+                            <span style="font-size: 12px; color: var(--gray-color); text-transform: uppercase;">Deterministic</span>
                         </div>
                         <div class="h-stat">
-                            <span
-                                style="display: block; font-size: 24px; font-weight: 800; color: var(--main-color);">8-BIT</span>
-                            <span
-                                style="font-size: 12px; color: var(--gray-color); text-transform: uppercase; letter-spacing: 1px;">Quantized
-                                Edge AI</span>
+                            <span style="display: block; font-size: 24px; font-weight: 800; color: var(--main-color);">8-BIT</span>
+                            <span style="font-size: 12px; color: var(--gray-color); text-transform: uppercase;">Quantized</span>
                         </div>
                         <div class="h-stat">
-                            <span
-                                style="display: block; font-size: 24px; font-weight: 800; color: var(--main-color);">RTOS</span>
-                            <span
-                                style="font-size: 12px; color: var(--gray-color); text-transform: uppercase; letter-spacing: 1px;">Mission
-                                Critical</span>
+                            <span style="display: block; font-size: 24px; font-weight: 800; color: var(--main-color);">RTOS</span>
+                            <span style="font-size: 12px; color: var(--gray-color); text-transform: uppercase;">Mission-Critical</span>
                         </div>
-                    </div>
-                </div>
-                <div class="hero-image-container reveal">
-                    <div class="hero-image">
-                        <img src="profile.jpg" alt="Muhammad Shafqat Ashraf - Embedded AI & Firmware Engineer">
                     </div>
                 </div>
             </div>
