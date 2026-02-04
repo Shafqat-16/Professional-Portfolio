@@ -170,7 +170,7 @@ nav .container {
     margin-bottom: 20px;
     letter-spacing: -3px;
     color: var(--text-color);
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .hero-role {
@@ -340,6 +340,8 @@ nav .container {
 
 .hero-image {
     width: 100%;
+    max-width: 480px;
+    margin-left: auto;
     aspect-ratio: 1;
     background: #0a0f1d;
     border-radius: 24px;
@@ -1144,8 +1146,16 @@ footer .container {
         font-size: 48px;
     }
 
-    .hero-highlights {
+    .hero-image-container {
+        display: flex;
         justify-content: center;
+        order: -1;
+        margin-bottom: 40px;
+    }
+
+    .hero-image {
+        max-width: 320px;
+        margin: 0 auto;
     }
 
     .hero-mission {
@@ -1324,6 +1334,5 @@ footer .container {
 @media (max-width: 991px) {
     .telemetry-bar {
         display: none;
-    }} 
- 
- 
+    }
+}
