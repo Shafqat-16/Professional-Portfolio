@@ -9,7 +9,6 @@
     --success-color: #10b981;
     --glass-bg: rgba(15, 23, 42, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --container-padding: 0 12%;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -48,7 +47,9 @@ body {
 }
 
 .container {
-    padding: var(--container-padding);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
     position: relative;
     z-index: 10;
 }
