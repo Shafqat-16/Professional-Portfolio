@@ -149,8 +149,8 @@ nav .container {
 
 .hero .container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
+    grid-template-columns: 1fr auto;
+    gap: 100px;
     padding: 100px 0;
     align-items: center;
 }
@@ -320,21 +320,33 @@ nav .container {
 }
 
 .hero-image {
-    width: 100%;
-    aspect-ratio: 1;
-    background: var(--glass-bg);
-    border-radius: 24px;
-    padding: 20px;
-    border: 1px solid var(--glass-border);
-    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 6px solid var(--glass-border);
     overflow: hidden;
+    background: var(--glass-bg);
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+}
+
+.hero-image:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 16px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
 }
 
 /* Expertise Grid */
