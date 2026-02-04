@@ -138,12 +138,64 @@
                 </div>
 
                 <div class="hero-image-container reveal">
-                    <div class="hero-image" style="width: 320px; height: 320px; border-radius: 50%; overflow: hidden; border: 8px solid var(--glass-border); box-shadow: var(--shadow-lg);">
-                        <img src="profile.jpg" alt="Muhammad Shafqat Ashraf - Embedded AI & Firmware Engineer" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="hero-image"
+                        style="width: 320px; height: 320px; border-radius: 50%; overflow: hidden; border: 8px solid var(--glass-border); box-shadow: var(--shadow-lg);">
+                        <img src="profile.jpg" alt="Muhammad Shafqat Ashraf - Embedded AI & Firmware Engineer"
+                            style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Tech Stack Scroller (Bridges the gap) -->
+        <div class="tech-stack-ticker"
+            style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); padding: 25px 0; overflow: hidden; position: relative; z-index: 10;">
+            <div class="ticker-wrapper"
+                style="display: flex; gap: 80px; white-space: nowrap; animation: ticker 60s linear infinite;">
+                <span class="ticker-item"
+                    style="color: var(--main-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-microchip"></i> ARM CORTEX-M</span>
+                <span class="ticker-item"
+                    style="color: var(--text-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-code"></i> ZEPHYR RTOS</span>
+                <span class="ticker-item"
+                    style="color: var(--main-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-brain"></i> TINYML / EDGE AI</span>
+                <span class="ticker-item"
+                    style="color: var(--text-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-bolt"></i> LOW-POWER FW</span>
+                <span class="ticker-item"
+                    style="color: var(--main-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-network-wired"></i> INDUSTRIAL IOT</span>
+                <span class="ticker-item"
+                    style="color: var(--text-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-project-diagram"></i> PCB DESIGN</span>
+                <!-- Loop -->
+                <span class="ticker-item"
+                    style="color: var(--main-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-microchip"></i> ARM CORTEX-M</span>
+                <span class="ticker-item"
+                    style="color: var(--text-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-code"></i> ZEPHYR RTOS</span>
+                <span class="ticker-item"
+                    style="color: var(--main-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-brain"></i> TINYML / EDGE AI</span>
+                <span class="ticker-item"
+                    style="color: var(--text-color); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px;"><i
+                        class="fas fa-bolt"></i> LOW-POWER FW</span>
+            </div>
+            <style>
+                @keyframes ticker {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            </style>
+        </div>
 
         <!-- Strategic Engineering Value Section -->
         <section id="engineering-value" class="section-padding" style="background: rgba(6, 182, 212, 0.02);">

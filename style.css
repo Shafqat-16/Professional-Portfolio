@@ -54,7 +54,7 @@ body {
 }
 
 .section-padding {
-    padding: 120px 0 80px;
+    padding: 80px 0;
 }
 
 
@@ -1354,4 +1354,15 @@ footer .container {
     .telemetry-bar {
         display: none;
     }
+}
+
+/* Tech Stack Ticker */
+.tech-stack-ticker {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.ticker-item i {
+    font-size: 16px;
+    margin-right: 8px;
 }
