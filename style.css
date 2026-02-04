@@ -27,7 +27,7 @@
 body {
     background: var(--bg-color);
     background-image:
-        radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.05) 1px, transparent 0);
+        radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.02) 1px, transparent 0);
     background-size: 40px 40px;
     color: var(--text-color);
     overflow-x: hidden;
@@ -140,141 +140,98 @@ nav .container {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
-    top: -100px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.03) 0%, transparent 70%);
+    top: -150px;
     right: -100px;
     z-index: -1;
 }
 
 .hero .container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
-    padding: 120px 0 60px;
-    align-items: flex-start;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 100px;
+    padding: 140px 0 100px;
+    align-items: center;
 }
 
-.hero-content h5 {
-    font-size: 14px;
+.hero-credibility {
+    font-size: 13px;
     color: var(--main-color);
     margin-bottom: 25px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
-    display: block;
+    opacity: 0.9;
 }
 
-.hero-content h1 {
-    font-size: 72px;
+.hero-name {
+    font-size: 82px;
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    letter-spacing: -2px;
-}
-
-.hero-content h2 {
-    font-size: 28px;
-    color: var(--gray-color);
-    margin-bottom: 30px;
-    font-weight: 400;
-}
-
-.hero-content h2 span {
+    line-height: 1.0;
+    margin-bottom: 20px;
+    letter-spacing: -3px;
     color: var(--text-color);
-    font-weight: 600;
 }
 
-.hero-content p {
+.hero-role {
+    font-size: 32px;
+    color: var(--gray-color);
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+.hero-desc {
     font-size: 18px;
     color: var(--gray-color);
-    margin-bottom: 40px;
-    max-width: 600px;
+    margin-bottom: 45px;
+    max-width: 580px;
+    line-height: 1.7;
+    opacity: 0.85;
 }
 
-/* Hero Highlights */
-.hero-highlights {
-    list-style: none;
-    margin-bottom: 35px;
+.hero-tech-strip {
     display: flex;
+    gap: 30px;
+    margin-bottom: 45px;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
-.hero-highlights li {
+.tech-pill {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-size: 14px;
-    color: var(--gray-color);
-    background: rgba(6, 182, 212, 0.05);
-    padding: 8px 16px;
-    border-radius: 50px;
-    border: 1px solid var(--glass-border);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.hero-highlights li:hover {
-    border-color: var(--main-color);
-    background: rgba(6, 182, 212, 0.1);
-    transform: translateY(-2px);
     color: var(--text-color);
-}
-
-.hero-highlights i {
-    color: var(--main-color);
-}
-
-/* Hero Mission & Stats */
-.hero-mission-minimal {
-    margin-top: 40px;
-    padding: 20px;
-    border-left: 2px solid var(--main-color);
-    background: rgba(6, 182, 212, 0.03);
-    border-radius: 0 12px 12px 0;
-    text-align: left;
-    max-width: 550px;
-}
-
-.hero-mission-minimal p {
-    font-style: italic;
-    font-size: 14px;
-    color: var(--gray-color);
-    margin: 0;
-}
-
-.hero-stats {
-    display: flex;
-    gap: 40px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 30px;
-}
-
-.hero-stats .stat-value {
-    display: block;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--main-color);
-}
-
-.hero-stats .stat-label {
-    font-size: 12px;
-    color: var(--gray-color);
-    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.tech-pill i {
+    color: var(--main-color);
+    font-size: 16px;
+}
+
+/* Hero Buttons Style */
+.hero-btns {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 16px 35px;
+    gap: 12px;
+    padding: 18px 40px;
     border-radius: 8px;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
     transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .btn.primary {
@@ -284,31 +241,19 @@ nav .container {
 
 .btn.primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
 }
 
 .btn.secondary {
-    border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.4);
     color: var(--text-color);
 }
 
 .btn.secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-}
-
-.download-btn:hover i {
-    animation: bounceDown 0.6s infinite alternate;
-}
-
-@keyframes bounceDown {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(5px);
-    }
+    border-color: #fff;
+    transform: translateY(-3px);
 }
 
 .hero-image-container {
@@ -316,20 +261,21 @@ nav .container {
 }
 
 .hero-image {
-    width: 380px;
-    height: 380px;
+    width: 420px;
+    height: 420px;
     border-radius: 50%;
-    border: 8px solid var(--glass-border);
+    border: 3px solid rgba(6, 182, 212, 0.3);
     overflow: hidden;
-    background: var(--glass-bg);
+    padding: 10px;
+    background: var(--bg-color);
     position: relative;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
     transition: var(--transition);
 }
 
 .hero-image:hover {
     border-color: var(--main-color);
-    transform: scale(1.02);
+    transform: translateY(-5px);
 }
 
 .hero-image img {
