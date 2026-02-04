@@ -69,8 +69,7 @@ nav {
 }
 
 nav.sticky {
-    padding: 15px 0;
-    background: rgba(3, 7, 18, 0.9);
+    background: #030712;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -149,10 +148,10 @@ nav .container {
 
 .hero .container {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 100px;
-    padding: 100px 0;
-    align-items: center;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    padding: 120px 0 60px;
+    align-items: flex-start;
 }
 
 .hero-content h5 {
@@ -317,14 +316,14 @@ nav .container {
 }
 
 .hero-image {
-    width: 320px;
-    height: 320px;
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
-    border: 6px solid var(--glass-border);
+    border: 8px solid var(--glass-border);
     overflow: hidden;
     background: var(--glass-bg);
     position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
     transition: var(--transition);
 }
 
@@ -1378,13 +1377,62 @@ footer .container {
     }
 }
 
-/* Tech Stack Ticker */
+/* Tech Stack Ticker (Inside Hero) */
 .tech-stack-ticker {
+    grid-column: 1 / -1;
+    margin-top: 60px;
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
+.ticker-wrapper {
+    display: flex;
+    gap: 80px;
+    white-space: nowrap;
+    animation: ticker 60s linear infinite;
+}
+
+.ticker-item {
+    color: var(--gray-color);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
 .ticker-item i {
-    font-size: 16px;
-    margin-right: 8px;
+    color: var(--main-color);
+}
+
+.ticker-item:hover {
+    opacity: 1;
+    color: var(--text-color);
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.header-divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
 }
