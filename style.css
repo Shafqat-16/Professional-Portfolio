@@ -1,4 +1,3 @@
-/* UI Update: 2026-02-04 13:05 */
 :root {
     --bg-color: #030712;
     --second-bg-color: #0f172a;
@@ -9,6 +8,7 @@
     --success-color: #10b981;
     --glass-bg: rgba(15, 23, 42, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
+    --container-padding: 0 12%;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -26,7 +26,7 @@
 body {
     background: var(--bg-color);
     background-image:
-        radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.02) 1px, transparent 0);
+        radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.05) 1px, transparent 0);
     background-size: 40px 40px;
     color: var(--text-color);
     overflow-x: hidden;
@@ -47,15 +47,13 @@ body {
 }
 
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 100px;
+    padding: var(--container-padding);
     position: relative;
     z-index: 10;
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 120px 0 80px;
 }
 
 
@@ -70,7 +68,8 @@ nav {
 }
 
 nav.sticky {
-    background: #030712;
+    padding: 15px 0;
+    background: rgba(3, 7, 18, 0.9);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -133,6 +132,7 @@ nav .container {
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding-top: 100px;
 }
 
 .hero::before {
@@ -140,99 +140,127 @@ nav .container {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.03) 0%, transparent 70%);
-    top: -150px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+    top: -100px;
     right: -100px;
     z-index: -1;
 }
 
 .hero .container {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 100px;
-    padding: 140px 40px 100px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
     align-items: center;
 }
 
-.hero-credibility {
-    font-size: 13px;
+.hero-content h5 {
+    font-size: 14px;
     color: var(--main-color);
-    margin-bottom: 35px;
-    font-weight: 700;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    opacity: 0.9;
+    display: block;
 }
 
-.hero-name {
-    font-size: 64px;
+.hero-content h1 {
+    font-size: 72px;
     font-weight: 800;
-    line-height: 1.0;
-    margin-bottom: 20px;
+    line-height: 1.1;
+    margin-bottom: 25px;
     letter-spacing: -2px;
-    color: var(--text-color);
-    white-space: nowrap;
 }
 
-.hero-role {
-    font-size: 32px;
+.hero-content h2 {
+    font-size: 28px;
     color: var(--gray-color);
-    margin-bottom: 40px;
-    font-weight: 500;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
-.hero-desc {
+.hero-content h2 span {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.hero-content p {
     font-size: 18px;
     color: var(--gray-color);
-    margin-bottom: 60px;
-    max-width: 580px;
-    line-height: 1.7;
-    opacity: 0.85;
+    margin-bottom: 40px;
+    max-width: 600px;
 }
 
-.hero-tech-strip {
+/* Hero Highlights */
+.hero-highlights {
+    list-style: none;
+    margin-bottom: 35px;
     display: flex;
-    gap: 30px;
-    margin-bottom: 45px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
-.tech-pill {
+.hero-highlights li {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-size: 14px;
+    color: var(--gray-color);
+    background: rgba(6, 182, 212, 0.05);
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.hero-highlights li:hover {
+    border-color: var(--main-color);
+    background: rgba(6, 182, 212, 0.1);
+    transform: translateY(-2px);
     color: var(--text-color);
-    font-weight: 700;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.7;
 }
 
-.tech-pill i {
+.hero-highlights i {
     color: var(--main-color);
-    font-size: 16px;
 }
 
-/* Hero Buttons Style */
-.hero-btns {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+/* Hero Mission Box */
+.hero-mission {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(6, 182, 212, 0.03);
+    border-left: 3px solid var(--main-color);
+    border-radius: 4px 16px 16px 4px;
+    max-width: 550px;
+}
+
+.mission-tag {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.hero-mission p {
+    font-size: 15px !important;
+    margin-bottom: 0 !important;
+    font-style: italic;
+    color: var(--gray-color);
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 18px 40px;
+    gap: 10px;
+    padding: 16px 35px;
     border-radius: 8px;
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 700;
     transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
 }
 
 .btn.primary {
@@ -242,19 +270,31 @@ nav .container {
 
 .btn.primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
 }
 
 .btn.secondary {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
     color: var(--text-color);
 }
 
 .btn.secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: #fff;
-    transform: translateY(-3px);
+}
+
+.download-btn:hover i {
+    animation: bounceDown 0.6s infinite alternate;
+}
+
+@keyframes bounceDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(5px);
+    }
 }
 
 .hero-image-container {
@@ -262,26 +302,21 @@ nav .container {
 }
 
 .hero-image {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    background: var(--second-bg-color);
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--glass-bg);
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
     position: relative;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    transition: var(--transition);
-}
-
-.hero-image:hover {
-    border-color: var(--main-color);
-    transform: translateY(-5px);
+    overflow: hidden;
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 16px;
 }
 
 /* Expertise Grid */
@@ -415,9 +450,9 @@ nav .container {
 }
 
 .pillar {
-    background: rgba(15, 23, 42, 0.4);
-    padding: 35px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border-radius: 16px;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
 }
@@ -425,38 +460,26 @@ nav .container {
 .pillar:hover {
     background: rgba(6, 182, 212, 0.05);
     border-color: var(--main-color);
-    transform: translateY(-8px);
+    transform: translateY(-5px);
 }
 
-.pillar-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(6, 182, 212, 0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-}
-
-.pillar-icon i {
-    font-size: 24px;
+.pillar i {
+    font-size: 30px;
     color: var(--main-color);
+    margin-bottom: 20px;
 }
 
-.pillar h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
+.pillar h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
     color: var(--text-color);
-    font-family: 'Space Grotesk', sans-serif;
 }
 
 .pillar p {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--gray-color);
-    line-height: 1.7;
+    line-height: 1.6;
 }
-
 
 .about-stats {
     display: grid;
@@ -797,8 +820,8 @@ section#home.active-tab {
 /* Contact Overhaul */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
     margin-top: 50px;
 }
 
@@ -1063,98 +1086,28 @@ footer .container {
 
 @media (max-width: 991px) {
     .container {
-        padding: 0 30px;
+        padding: 0 5%;
     }
 
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 50px;
-        padding: 100px 30px 60px;
     }
 
-    .hero-content {
-        order: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-image-container {
-        order: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .hero-image {
-        width: 250px;
-        height: 250px;
-        border-width: 4px;
-    }
-
-    .hero-name {
-        font-size: 40px;
-        letter-spacing: -1px;
-        white-space: normal;
-    }
-
-    .hero-content h2 {
-        font-size: 20px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
+    .hero-content h1 {
+        font-size: 48px;
     }
 
     .hero-highlights {
         justify-content: center;
     }
 
-    .hero-btns {
-        flex-direction: column;
-        width: 100%;
-        gap: 15px;
-    }
-
-    .hero-btns .btn {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-stats {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-
-    .hero-mission-minimal {
-        text-align: center;
-        border-right: 2px solid var(--main-color);
-        border-radius: 12px;
+    .hero-mission {
+        margin: 40px auto 0;
     }
 
     .contact-grid {
         grid-template-columns: 1fr;
-    }
-
-    .featured-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 32px;
-    }
-
-    .hero-image {
-        width: 200px;
-        height: 200px;
-    }
-
-    .hero-stats {
-        flex-direction: column;
-        gap: 20px;
     }
 }
 
@@ -1326,64 +1279,3 @@ footer .container {
     .telemetry-bar {
         display: none;
     }
-}
-
-/* Tech Stack Ticker (Inside Hero) */
-.tech-stack-ticker {
-    grid-column: 1 / -1;
-    margin-top: 60px;
-    padding: 30px 0;
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    overflow: hidden;
-    position: relative;
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-
-.ticker-wrapper {
-    display: flex;
-    gap: 80px;
-    white-space: nowrap;
-    animation: ticker 60s linear infinite;
-}
-
-.ticker-item {
-    color: var(--gray-color);
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    opacity: 0.6;
-    transition: var(--transition);
-}
-
-.ticker-item i {
-    color: var(--main-color);
-}
-
-.ticker-item:hover {
-    opacity: 1;
-    color: var(--text-color);
-}
-
-@keyframes ticker {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.header-divider {
-    grid-column: 1 / -1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
-}
