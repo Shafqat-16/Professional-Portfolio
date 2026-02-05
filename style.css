@@ -321,69 +321,59 @@ nav .container {
     color: var(--gray-color);
 }
 
-/* High-End Professional Button System */
+/* Skeuomorphic 3D Button System (Inspired by Reference) */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 18px 45px;
-    border-radius: 12px;
-    /* Professional Modern Rounding */
-    font-size: 14px;
+    width: 280px;
+    /* Equal length for all buttons */
+    padding: 22px 0;
+    border-radius: 100px;
+    /* Pill shape */
+    font-size: 18px;
     font-weight: 800;
     transition: var(--transition);
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
+    text-transform: capitalize;
     position: relative;
-    overflow: hidden;
     cursor: pointer;
     border: none;
+    text-align: center;
 }
 
 .btn.primary {
-    background: var(--premium-gradient);
-    color: var(--bg-color);
-    box-shadow: 0 15px 35px rgba(6, 182, 212, 0.3);
-}
-
-.btn.primary::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent 0% 10%, rgba(255, 255, 255, 0.4) 15%, transparent 20% 100%);
-    animation: rotateShimmer 3s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes rotateShimmer {
-    to {
-        transform: rotate(360deg);
-    }
+    background: linear-gradient(to bottom, #e11d48 0%, #9f1239 100%);
+    color: #fff;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 4px 8px rgba(255, 255, 255, 0.4),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn.primary:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 25px 50px rgba(6, 182, 212, 0.5);
+    transform: translateY(-5px) scale(1.02);
     filter: brightness(1.1);
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.6),
+        inset 0 4px 8px rgba(255, 255, 255, 0.5);
 }
 
 .btn.secondary {
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--text-color);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
+    background: linear-gradient(to bottom, #334155 0%, #0f172a 100%);
+    color: #fff;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 4px 8px rgba(255, 255, 255, 0.2),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn.secondary:hover {
-    background: rgba(6, 182, 212, 0.1);
-    border-color: var(--main-color);
-    color: var(--main-color);
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(6, 182, 212, 0.2);
+    transform: translateY(-5px) scale(1.02);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .btn i {
