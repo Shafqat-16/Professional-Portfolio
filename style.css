@@ -458,6 +458,64 @@ nav .container {
     }
 }
 
+.tech-context-card {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 22px 35px;
+    display: flex;
+    gap: 40px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    z-index: 20;
+    width: max-content;
+    animation: fadeInUp 1s ease-out;
+}
+
+.context-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.context-item i {
+    width: 45px;
+    height: 45px;
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--main-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.context-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.context-info span {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray-color);
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.context-info strong {
+    font-size: 15px;
+    color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
+    white-space: nowrap;
+}
+
 .hero-image img {
     width: 100%;
     height: 100%;
