@@ -208,21 +208,15 @@ nav .container {
 }
 
 .hero-name {
-    display: flex;
-    flex-direction: column;
-    font-size: clamp(54px, 8vw, 84px);
+    font-size: clamp(54px, 10vw, 92px);
     font-weight: 900;
-    line-height: 0.9;
+    line-height: 1.0;
     margin-bottom: 25px;
-    letter-spacing: -3px;
+    letter-spacing: -4px;
     background: linear-gradient(to bottom, #fff 30%, var(--gray-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.name-line {
-    display: block;
 }
 
 .hero-role {
