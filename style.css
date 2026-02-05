@@ -343,29 +343,29 @@ nav .container {
 }
 
 .btn.primary {
-    background: linear-gradient(to bottom, #e11d48 0%, #9f1239 100%);
-    color: #fff;
+    background: linear-gradient(to bottom, #06b6d4 0%, #0891b2 100%);
+    color: var(--bg-color);
     box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 4px 8px rgba(255, 255, 255, 0.4),
-        inset 0 -4px 8px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        inset 0 4px 8px rgba(255, 255, 255, 0.5),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .btn.primary:hover {
     transform: translateY(-5px) scale(1.02);
     filter: brightness(1.1);
     box-shadow:
-        0 15px 30px rgba(0, 0, 0, 0.6),
-        inset 0 4px 8px rgba(255, 255, 255, 0.5);
+        0 15px 30px rgba(6, 182, 212, 0.3),
+        inset 0 4px 10px rgba(255, 255, 255, 0.6);
 }
 
 .btn.secondary {
-    background: linear-gradient(to bottom, #334155 0%, #0f172a 100%);
+    background: linear-gradient(to bottom, #3b82f6 0%, #1d4ed8 100%);
     color: #fff;
     box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 4px 8px rgba(255, 255, 255, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        inset 0 4px 8px rgba(255, 255, 255, 0.3),
         inset 0 -4px 8px rgba(0, 0, 0, 0.3);
 }
 
