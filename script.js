@@ -1,77 +1,61 @@
-// Tabbed Navigation Logic
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-const switchTab = (targetId) => {
-    // Remove active from all
-    navLinks.forEach(l => {
-        l.classList.remove('active');
-        if (l.getAttribute('href') === `#${targetId}`) {
-            l.classList.add('active');
-        }
-    });
-
-    sections.forEach(s => {
-        s.classList.remove('active-tab');
-        s.style.display = 'none';
-    });
-
-    // Add active to current
-    const targetSection = document.getElementById(targetId);
-    if (!targetSection) return;
-
-    targetSection.classList.add('active-tab');
-
-    if (targetId === 'home') {
-        targetSection.style.display = 'flex';
-    } else {
-        targetSection.style.display = 'block';
-    }
-
-    // Trigger reveal animations for the specific section content
-    const reveals = targetSection.querySelectorAll('.reveal');
-    reveals.forEach(r => r.classList.add('active'));
-
-    window.scrollTo(0, 0);
-};
-
-// Global click listener for all hash links (nav + buttons)
-document.addEventListener('click', (e) => {
-    const anchor = e.target.closest('a');
-    if (anchor && anchor.getAttribute('href') && anchor.getAttribute('href').startsWith('#')) {
-        const targetId = anchor.getAttribute('href').substring(1);
-        if (document.getElementById(targetId)) {
-            e.preventDefault();
-
-            // Close modal if it's open
-            if (modal.style.display === "block") {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-
-            switchTab(targetId);
-        }
-    }
-});
-
-// Sticky Header
-const header = document.querySelector('nav');
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-});
-
-// Project & Tech Insight Modal Logic
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalTech = document.getElementById("modal-tech-stack");
 const modalDesc = document.getElementById("modal-description");
 const closeBtn = document.querySelector(".close-modal");
 
-// Handle Project Clicks
+// Sticky Header
+const header = document.querySelector('nav');
+window.addEventListener("scroll", () => {
+    header.classList.toggle("sticky", window.scrollY > 100);
+});
+
+// Active nav link via IntersectionObserver
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+            });
+        }
+    });
+}, { rootMargin: '-30% 0px -60% 0px' });
+
+sections.forEach(s => sectionObserver.observe(s));
+
+// Reveal animations on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Smooth scroll for hash links
+document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (anchor && anchor.getAttribute('href') && anchor.getAttribute('href').startsWith('#')) {
+        const targetId = anchor.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+            e.preventDefault();
+            if (modal.style.display === "block") {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
+
+// Project Clicks
 document.querySelectorAll(".view-project").forEach(btn => {
     btn.addEventListener("click", () => {
         modalTitle.innerText = btn.getAttribute("data-title");
@@ -82,7 +66,7 @@ document.querySelectorAll(".view-project").forEach(btn => {
     });
 });
 
-// Handle Hero & Expertise Tech Insight Clicks
+// Tech Insight Clicks
 document.querySelectorAll(".tech-insight").forEach(item => {
     item.addEventListener("click", () => {
         modalTitle.innerText = item.getAttribute("data-title");
@@ -99,13 +83,8 @@ closeBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (e) => {
-    if (e.target == modal) {
+    if (e.target === modal) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
-});
-
-// Initialize first reveal on load and home tab
-window.addEventListener('load', () => {
-    switchTab('home');
 });
