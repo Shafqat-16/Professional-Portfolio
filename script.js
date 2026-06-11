@@ -34,20 +34,24 @@ const revealObserver = new IntersectionObserver((entries) => {
             revealObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// Immediately activate reveals already in viewport on load
-window.addEventListener('load', () => {
-    document.querySelectorAll('.reveal').forEach(el => {
+function activateVisibleReveals() {
+    document.querySelectorAll('.reveal:not(.active)').forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
             el.classList.add('active');
             revealObserver.unobserve(el);
         }
     });
-});
+}
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Run synchronously now (script is at bottom of body, DOM is ready)
+activateVisibleReveals();
+// Run again after images/fonts finish loading (layout may shift)
+window.addEventListener('load', activateVisibleReveals);
 
 // Smooth scroll for hash links
 document.addEventListener('click', (e) => {

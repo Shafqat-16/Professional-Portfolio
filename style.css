@@ -166,6 +166,12 @@ section {
     scroll-margin-top: 80px;
 }
 
+/* Hero is always visible — never depends on JS timing */
+.hero .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Hero Section */
 .hero {
     display: flex;
