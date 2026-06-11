@@ -34,9 +34,20 @@ const revealObserver = new IntersectionObserver((entries) => {
             revealObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Immediately activate reveals already in viewport on load
+window.addEventListener('load', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('active');
+            revealObserver.unobserve(el);
+        }
+    });
+});
 
 // Smooth scroll for hash links
 document.addEventListener('click', (e) => {
