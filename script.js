@@ -10,6 +10,25 @@ window.addEventListener("scroll", () => {
     header.classList.toggle("sticky", window.scrollY > 100);
 });
 
+// Mobile hamburger menu
+const menuBtn = document.querySelector('.menu-btn');
+const navMenu = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    navMenu.classList.toggle('open');
+    document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : 'auto';
+});
+
+// Close menu when a nav link is clicked
+navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuBtn.classList.remove('open');
+        navMenu.classList.remove('open');
+        document.body.style.overflow = 'auto';
+    });
+});
+
 // Active nav link via IntersectionObserver
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');

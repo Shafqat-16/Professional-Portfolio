@@ -115,6 +115,10 @@ nav .container {
     align-items: center;
 }
 
+.menu-btn {
+    display: none;
+}
+
 .logo {
     font-size: 24px;
     font-weight: 800;
@@ -1296,38 +1300,202 @@ footer .container {
     transform: translateY(-3px);
 }
 
-@media (max-width: 991px) {
+/* =============================================
+   MOBILE RESPONSIVE — max 768px
+   ============================================= */
+@media (max-width: 768px) {
+
+    /* Nav: hamburger menu */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(2, 6, 23, 0.97);
+        backdrop-filter: blur(20px);
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 20px;
+    }
+
+    .menu-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 5px;
+    }
+
+    .menu-btn .bar {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--text-color);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .menu-btn.open .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-btn.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-btn.open .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* General layout */
     .container {
         padding: 0 5%;
+    }
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding-top: 90px;
+        padding-bottom: 60px;
     }
 
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
 
-    .hero-content h1 {
-        font-size: 48px;
+    .hero-name {
+        font-size: clamp(38px, 12vw, 56px);
+        letter-spacing: -2px;
+    }
+
+    .hero-role {
+        font-size: 18px;
+    }
+
+    .hero-desc {
+        font-size: 15px;
+    }
+
+    .hero-credibility::after {
+        display: none;
+    }
+
+    .hero-tech-strip {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-btns {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 
     .hero-image-container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         order: -1;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
     .hero-image {
-        max-width: 320px;
+        max-width: 220px;
         margin: 0 auto;
     }
 
-    .hero-mission {
-        margin: 40px auto 0;
+    .tech-context-card {
+        position: static;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 320px;
     }
 
+    /* Section headers */
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+
+    /* Grids → single column */
+    .value-pillars,
+    .solutions-grid,
+    .expertise-grid,
+    .workflow-grid,
+    .ecosystem-grid,
+    .skills-grid,
+    .projects-grid,
+    .education-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Timeline */
+    .timeline-item {
+        padding-left: 20px;
+    }
+
+    .timeline-date {
+        font-size: 12px;
+    }
+
+    /* Stats row */
+    .about-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 22px;
+        font-size: 13px;
+    }
+
+    /* Contact grid */
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* About grid */
+    .cert-side,
+    .lang-side {
+        width: 100%;
+    }
+
+    /* Featured grid */
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Footer */
+    footer .container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
 }
 
