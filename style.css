@@ -1393,94 +1393,103 @@ footer .container {
     /* ---- Hero ---- */
     .hero {
         min-height: auto !important;
-        padding-top: 80px;
-        padding-bottom: 60px;
+        padding-top: 80px !important;
+        padding-bottom: 60px !important;
     }
 
+    /* Switch from grid to flex-column and center everything */
     .hero .container {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        gap: 32px;
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 28px !important;
     }
 
     .hero-image-container {
         order: -1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: static;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: static !important;
+        width: 100% !important;
     }
 
     .hero-image {
-        width: 160px !important;
-        height: 160px !important;
-        margin: 0 auto;
+        width: 150px !important;
+        height: 150px !important;
+        margin: 0 auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     .tech-context-card {
         display: none !important;
     }
 
+    .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
     .hero-credibility {
-        justify-content: center;
+        justify-content: center !important;
         font-size: 10px;
         letter-spacing: 3px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
 
     .hero-credibility::after {
-        display: none;
+        display: none !important;
     }
 
     .hero-name {
-        font-size: clamp(34px, 9vw, 50px);
+        font-size: clamp(30px, 9vw, 46px) !important;
         letter-spacing: -2px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
 
     .hero-role {
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 15px;
+        margin-bottom: 16px;
     }
 
     .hero-desc {
-        font-size: 14px;
+        font-size: 13px;
         line-height: 1.6;
-        margin-bottom: 24px;
-        text-align: center;
+        margin-bottom: 20px;
+        text-align: center !important;
+        max-width: 100% !important;
     }
 
     .hero-tech-strip {
-        justify-content: center;
-        gap: 10px;
+        justify-content: center !important;
+        gap: 8px;
         flex-wrap: wrap;
-        margin-bottom: 28px;
+        margin-bottom: 20px;
     }
 
     .tech-pill {
         font-size: 11px;
-        gap: 8px;
     }
 
     .hero-btns {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
         gap: 12px;
         width: 100%;
     }
 
     .hero-btns .btn {
         width: 100%;
-        max-width: 260px;
+        max-width: 250px;
         justify-content: center;
         text-align: center;
+        display: flex !important;
     }
 
     /* ---- All grids → 1 column ---- */
