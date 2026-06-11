@@ -789,23 +789,6 @@ section {
     font-weight: 700;
 }
 
-/* Tab Transition Enhancement */
-section {
-    display: none;
-    opacity: 0;
-    transform: scale(0.98);
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-section.active-tab {
-    display: block;
-    opacity: 1;
-    transform: scale(1);
-}
-
-section#home.active-tab {
-    display: flex;
-}
 
 /* Section Header Update */
 .section-header p {
