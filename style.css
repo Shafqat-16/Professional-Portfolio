@@ -1,14 +1,14 @@
 :root {
-    --bg-color: #020617;
-    --second-bg-color: #0c1222;
-    --text-color: #f8fafc;
-    --main-color: #06b6d4;
-    --accent-color: #3b82f6;
-    --premium-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-    --gray-color: #94a3b8;
-    --glass-bg: rgba(15, 23, 42, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.04);
-    --glow-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+    --bg-color: #0D1117;
+    --second-bg-color: #161B22;
+    --text-color: #E6EDF3;
+    --main-color: #58A6FF;
+    --accent-color: #1F6FEB;
+    --premium-gradient: linear-gradient(135deg, #58A6FF 0%, #1F6FEB 100%);
+    --gray-color: #8B949E;
+    --glass-bg: rgba(22, 27, 34, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glow-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
     --container-padding: 0 10%;
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -27,7 +27,7 @@
 body {
     background: var(--bg-color);
     background-image:
-        radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.05) 1px, transparent 0);
+        radial-gradient(circle at 2px 2px, rgba(88, 166, 255, 0.04) 1px, transparent 0);
     background-size: 40px 40px;
     color: var(--text-color);
     overflow-x: hidden;
