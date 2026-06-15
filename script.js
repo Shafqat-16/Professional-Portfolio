@@ -76,7 +76,7 @@ document.querySelectorAll(".view-project").forEach(btn => {
     btn.addEventListener("click", () => {
         modalTitle.innerText = btn.getAttribute("data-title");
         modalTech.innerText = `Focus: ${btn.getAttribute("data-tech")}`;
-        modalDesc.innerText = btn.getAttribute("data-desc");
+        modalDesc.innerHTML = btn.getAttribute("data-desc");
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     });
@@ -87,7 +87,7 @@ document.querySelectorAll(".tech-insight").forEach(item => {
     item.addEventListener("click", () => {
         modalTitle.innerText = item.getAttribute("data-title");
         modalTech.innerText = `Focus: ${item.getAttribute("data-tech")}`;
-        modalDesc.innerText = item.getAttribute("data-desc");
+        modalDesc.innerHTML = item.getAttribute("data-desc");
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     });

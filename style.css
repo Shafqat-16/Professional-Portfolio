@@ -1265,6 +1265,100 @@ section {
     justify-content: center;
 }
 
+/* Rich modal content styling */
+.spec-overview {
+    background: rgba(88, 166, 255, 0.05);
+    border-left: 3px solid var(--main-color);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 24px;
+}
+
+.spec-overview p {
+    font-size: 14px;
+    color: var(--gray-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.spec-section {
+    margin-bottom: 22px;
+}
+
+.spec-section h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.spec-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spec-section ul li {
+    font-size: 13px;
+    color: var(--gray-color);
+    line-height: 1.6;
+    padding: 6px 0 6px 18px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.spec-section ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+    font-size: 11px;
+    top: 8px;
+}
+
+.spec-section ul li strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.spec-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.metric-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 12px 10px;
+    text-align: center;
+}
+
+.metric-val {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--main-color);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.metric-label {
+    display: block;
+    font-size: 10px;
+    color: var(--gray-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
 /* Animations & Utility */
 .reveal {
     opacity: 0;
