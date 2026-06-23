@@ -66,12 +66,12 @@
       }
     }
     </script>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -99,6 +99,7 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
+            <canvas id="signal-canvas" aria-hidden="true"></canvas>
             <div class="container">
                 <div class="hero-content">
                     <h5 class="reveal hero-credibility">Production-Ready Embedded Systems for Edge Devices</h5>
@@ -245,8 +246,9 @@
         <section id="expertise" class="section-padding">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-tag">Technical Depth</span>
                     <h2>Hardware & Software <span>Arsenal</span></h2>
-                    <div class="underline"></div>
+                    <p>Tap any domain for a full engineering specification.</p>
                 </div>
                 <div class="expertise-grid">
                     <div class="expertise-card reveal tech-insight" data-title="Advanced Firmware Engineering"
@@ -340,6 +342,7 @@
         <section id="ecosystem" class="ecosystem section-padding">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-tag">Toolchain</span>
                     <h2>Mastered <span>Ecosystem</span></h2>
                     <p>My toolkit for architecting end-to-end intelligent systems.</p>
                 </div>
@@ -436,7 +439,8 @@
         <section id="about" class="about section-padding">
             <div class="container">
                 <div class="section-header">
-                    <h2>Professional <span>Profile</span></h2>
+                    <span class="section-tag">Profile</span>
+                    <h2>Professional <span>Background</span></h2>
                     <div class="underline"></div>
                 </div>
                 <div class="about-grid">
@@ -497,6 +501,7 @@
         <section id="experience" class="experience section-padding">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-tag">Career</span>
                     <h2>Work <span>Experience</span></h2>
                     <div class="underline"></div>
                 </div>
@@ -573,7 +578,8 @@
         <section id="skills" class="skills section-padding">
             <div class="container">
                 <div class="section-header">
-                    <h2>Core <span>Competencies</span></h2>
+                    <span class="section-tag">Competencies</span>
+                    <h2>Core <span>Skill Matrix</span></h2>
                     <div class="underline"></div>
                 </div>
                 <div class="skills-grid">
@@ -640,11 +646,12 @@
         <section id="featured-case-study" class="featured-project section-padding">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-tag">Spotlight</span>
                     <h2>Featured <span>Case Study</span></h2>
                 </div>
                 <div class="featured-grid">
                     <div class="featured-image reveal">
-                        <div class="hero-image" style="background: rgba(6, 182, 212, 0.1); margin: 70px;">
+                        <div class="hero-image">
                             <img src="project3.png" alt="Smart Foot Weight Analytics System">
                         </div>
                     </div>
@@ -690,7 +697,8 @@
         <section id="projects" class="projects section-padding">
             <div class="container">
                 <div class="section-header">
-                    <h2>Featured <span>Projects</span></h2>
+                    <span class="section-tag">Portfolio</span>
+                    <h2>Engineering <span>Projects</span></h2>
                     <div class="underline"></div>
                 </div>
                 <div class="projects-grid">
@@ -825,6 +833,7 @@
         <section id="education" class="education section-padding">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-tag">Academic</span>
                     <h2><span>Education</span></h2>
                     <div class="underline"></div>
                 </div>
@@ -928,6 +937,7 @@
         <section id="contact" class="contact section-padding">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-tag">Contact</span>
                     <h2>Technical <span>Project Inquiry</span></h2>
                     <p>Have a complex engineering challenge? Let's discuss your system requirements and build a
                         high-performance solution together.</p>
@@ -1030,7 +1040,7 @@
     </div>
 
     <!-- Technical Telemetry Bar -->
-    <div class="telemetry-bar">
+    <div class="telemetry-bar" aria-hidden="true">
         <div class="telemetry-track">
             <span>CORE_SYSTEM: ACTIVE</span>
             <span>OS: DETERMINISTIC_RTOS</span>
@@ -1038,7 +1048,15 @@
             <span>EDGE_AI_NODE: READY</span>
             <span>LATENCY: 1.4ms</span>
             <span>SECURITY_PROTOCOL: ENHANCED</span>
-            <span>TINYM_QUANTIZATION: 8-BIT_INT</span>
+            <span>TINYML_QUANTIZATION: 8-BIT_INT</span>
+            <span>UPTIME: 99.9%</span>
+            <span>CORE_SYSTEM: ACTIVE</span>
+            <span>OS: DETERMINISTIC_RTOS</span>
+            <span>MEMORY_STATE: OPTIMIZED</span>
+            <span>EDGE_AI_NODE: READY</span>
+            <span>LATENCY: 1.4ms</span>
+            <span>SECURITY_PROTOCOL: ENHANCED</span>
+            <span>TINYML_QUANTIZATION: 8-BIT_INT</span>
             <span>UPTIME: 99.9%</span>
         </div>
     </div>
