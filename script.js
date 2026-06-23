@@ -1,6 +1,7 @@
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
-const modalTech = document.getElementById("modal-tech-stack");
+const modalTech = document.getElementById("modal-tech-stack"); 
+
 const modalDesc = document.getElementById("modal-description");
 const closeBtn = document.querySelector(".close-modal");
 
