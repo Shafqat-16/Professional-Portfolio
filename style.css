@@ -1741,3 +1741,342 @@ footer p {
         display: none;
     }
 }
+
+/* ============================================================
+   Blog / Writing
+   Additive only — reuses existing tokens, never overrides
+   the selectors above.
+   ============================================================ */
+
+/* Shared logo-as-link on blog pages */
+a.logo {
+    display: inline-block;
+}
+
+.nav-links a.active {
+    color: var(--text);
+}
+
+/* ------------------------------------------------------------ Blog index */
+.blog-hero-title {
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+}
+
+.blog-hero-title span {
+    color: var(--accent);
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 26px;
+}
+
+.post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 30px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-line);
+    box-shadow: var(--card-shadow);
+}
+
+.post-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.post-card-meta .post-date {
+    color: var(--accent);
+}
+
+.post-card-meta .post-reading-time {
+    color: var(--text-dim);
+}
+
+.post-card h3 {
+    font-size: 1.18rem;
+    margin-bottom: 12px;
+}
+
+.post-card h3 a:hover {
+    color: var(--accent);
+}
+
+.post-card > p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.post-card .post-tags {
+    margin-bottom: 22px;
+}
+
+.post-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.post-card-link i {
+    transition: transform 0.25s ease;
+}
+
+.post-card-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Shared tag-pill look, reused by post cards and post header */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.post-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 5px 11px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+/* Optional "read the write-up" link on a project card, linking to its post */
+.project-post-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    transition: color 0.2s ease;
+}
+
+.project-post-link:hover {
+    color: var(--accent-soft);
+}
+
+/* ------------------------------------------------------------ Individual post page */
+.post-container {
+    max-width: 760px;
+}
+
+.post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-bottom: 44px;
+    transition: color 0.2s ease;
+}
+
+.post-back:hover {
+    color: var(--accent);
+}
+
+.post-header {
+    margin-bottom: 48px;
+}
+
+.post-title {
+    font-size: clamp(1.9rem, 4.4vw, 2.7rem);
+    margin: 18px 0 22px;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 22px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+}
+
+.post-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.post-meta i {
+    color: var(--accent);
+}
+
+/* ------------------------------------------------------------ Post body typography */
+.post-content {
+    font-size: 1.05rem;
+}
+
+.post-content p {
+    line-height: 1.85;
+    margin-bottom: 24px;
+}
+
+.post-content h2 {
+    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    margin: 56px 0 20px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-soft);
+}
+
+.post-content h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.post-content h3 {
+    font-size: 1.2rem;
+    margin: 36px 0 14px;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-content li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.post-content li::before {
+    content: '\203A';
+    position: absolute;
+    left: 4px;
+    top: -1px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.post-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-line);
+    text-underline-offset: 3px;
+}
+
+.post-content a:hover {
+    color: var(--accent-soft);
+}
+
+.post-content hr {
+    border: none;
+    height: 1px;
+    background: var(--border-soft);
+    margin: 48px 0;
+}
+
+.post-content p code,
+.post-content li code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--surface-2);
+    color: var(--accent-soft);
+    padding: 2px 7px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------ Code blocks (Pygments via codehilite) */
+.post-content .codehilite {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 28px 0;
+    overflow-x: auto;
+}
+
+.post-content .codehilite pre {
+    margin: 0;
+    padding: 20px 22px;
+}
+
+.post-content .codehilite code {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: var(--text);
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+/* Pygments token colors — restrained 2-hue palette matching the brand accent */
+.codehilite .c,
+.codehilite .c1,
+.codehilite .cm,
+.codehilite .cp {
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.codehilite .k,
+.codehilite .kn,
+.codehilite .kd,
+.codehilite .kc,
+.codehilite .ow,
+.codehilite .na {
+    color: var(--accent);
+}
+
+.codehilite .s,
+.codehilite .s1,
+.codehilite .s2,
+.codehilite .sb {
+    color: var(--accent-soft);
+}
+
+.codehilite .nb,
+.codehilite .nf,
+.codehilite .nc {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.codehilite .m,
+.codehilite .mi,
+.codehilite .mf {
+    color: #E8C07D;
+}
+
+.codehilite .o,
+.codehilite .p,
+.codehilite .gp {
+    color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------ Blog responsive */
+@media (max-width: 768px) {
+    .post-meta {
+        gap: 14px;
+    }
+}

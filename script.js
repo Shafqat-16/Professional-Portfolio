@@ -136,7 +136,7 @@ document.addEventListener('click', (e) => {
         const target = document.getElementById(targetId);
         if (target) {
             e.preventDefault();
-            if (modal.style.display === "block") {
+            if (modal && modal.style.display === "block") {
                 modal.style.display = "none";
                 document.body.style.overflow = "auto";
             }
@@ -241,14 +241,16 @@ document.addEventListener("click", (e) => {
     if (card) cardModal(card);
 });
 
-closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-});
+if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+}
 
 // Close modal on Escape
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.style.display === "block") {
+    if (modal && e.key === "Escape" && modal.style.display === "block") {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
