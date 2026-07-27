@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Foot: Building an End-to-End Embedded-ML Gait Analysis System | Shafqat Ashraf</title>
+    <meta name="description" content="How I built a wearable plantar-pressure system from the ground up — 16-channel FSR sensing, a real-time bare-metal C pipeline, and an on-device neural network — and recorded my own dataset of 1,500+ gait samples from 50 subjects to train it.">
+    <meta name="author" content="Muhammad Shafqat Ashraf">
+    <link rel="canonical" href="https://shafqat-ashraf.vercel.app/blog/smart-foot-embedded-ml-gait-analysis/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shafqat-ashraf.vercel.app/blog/smart-foot-embedded-ml-gait-analysis/">
+    <meta property="og:title" content="Smart Foot: Building an End-to-End Embedded-ML Gait Analysis System">
+    <meta property="og:description" content="How I built a wearable plantar-pressure system from the ground up — 16-channel FSR sensing, a real-time bare-metal C pipeline, and an on-device neural network — and recorded my own dataset of 1,500+ gait samples from 50 subjects to train it.">
+    <meta property="og:image" content="https://shafqat-ashraf.vercel.app/profile.jpg">
+    <meta property="article:published_time" content="2026-07-27">
+    <meta property="article:author" content="Muhammad Shafqat Ashraf">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Smart Foot: Building an End-to-End Embedded-ML Gait Analysis System">
+    <meta property="twitter:description" content="How I built a wearable plantar-pressure system from the ground up — 16-channel FSR sensing, a real-time bare-metal C pipeline, and an on-device neural network — and recorded my own dataset of 1,500+ gait samples from 50 subjects to train it.">
+    <meta property="twitter:image" content="https://shafqat-ashraf.vercel.app/profile.jpg">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Smart Foot: Building an End-to-End Embedded-ML Gait Analysis System",
+  "description": "How I built a wearable plantar-pressure system from the ground up \u2014 16-channel FSR sensing, a real-time bare-metal C pipeline, and an on-device neural network \u2014 and recorded my own dataset of 1,500+ gait samples from 50 subjects to train it.",
+  "image": "https://shafqat-ashraf.vercel.app/profile.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Muhammad Shafqat Ashraf",
+    "url": "https://shafqat-ashraf.vercel.app/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Muhammad Shafqat Ashraf"
+  },
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-07-27",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shafqat-ashraf.vercel.app/blog/smart-foot-embedded-ml-gait-analysis/"
+  }
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="/" class="logo">M.<span>Shafqat</span></a>
+            <ul class="nav-links">
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#about">Profile</a></li>
+                <li><a href="/#experience">Experience</a></li>
+                <li><a href="/#skills">Competencies</a></li>
+                <li><a href="/#projects">Case Studies</a></li>
+                <li><a href="/blog/" class="active">Writing</a></li>
+                <li><a href="/#contact" class="nav-contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article class="section-padding post-page">
+            <div class="container post-container">
+                <a href="/blog/" class="post-back">&larr; All Writing</a>
+                <header class="post-header reveal">
+                    <span class="section-tag">Writing</span>
+                    <h1 class="post-title">Smart Foot: Building an End-to-End Embedded-ML Gait Analysis System</h1>
+                    <div class="post-meta">
+                        <span><i class="fas fa-calendar"></i> July 27, 2026</span>
+                        <span><i class="fas fa-clock"></i> 8 min read</span>
+                        <span><i class="fas fa-user"></i> Muhammad Shafqat Ashraf</span>
+                    </div>
+                    <div class="post-tags">
+                    <span>embedded</span>
+                    <span>TinyML</span>
+                    <span>machine-learning</span>
+                    <span>signal-processing</span>
+                    <span>FSR</span>
+                    <span>gait-analysis</span>
+                    <span>firmware</span>
+                    </div>
+                </header>
+                <div class="post-content reveal">
+                    <p><em>How I built a portable plantar-pressure and gait-analysis system from sensor to model to app — and why collecting my own dataset was the hardest and most valuable part.</em></p>
+<p>By <strong>Muhammad Shafqat Ashraf</strong> — Embedded, DSP &amp; Firmware Systems Engineer</p>
+<hr />
+<p>Most machine-learning projects start with a dataset someone else collected. This one started with an empty PCB.</p>
+<p>Smart Foot is a portable biomechanical sensing system that reads pressure under the foot in real time, extracts gait features, and classifies walking patterns using a neural network running <strong>on the device itself</strong> — no cloud, no phone doing the heavy lifting. It was a research prototype, built to explore how far you can push sensor- and ML-based gait analysis on constrained embedded hardware. The interesting part is not any single piece; it is that I owned the whole chain, from the analog front end all the way to a trained model and a companion app.</p>
+<p>This write-up walks through that chain, and spends the most time on the part that taught me the most: building the training dataset from scratch.</p>
+<h2>The system at a glance</h2>
+<p>The pipeline has six stages, each feeding the next:</p>
+<ol>
+<li><strong>Sensing</strong> — a 16-sensor force-sensitive-resistor (FSR) array captures pressure across the sole.</li>
+<li><strong>Acquisition</strong> — a 12-bit ADC samples all channels at 100 Hz through analog multiplexing.</li>
+<li><strong>Real-time firmware</strong> — bare-metal C on an ARM Cortex-M microcontroller filters and normalizes the signal inside a 10 ms window.</li>
+<li><strong>Feature extraction</strong> — the firmware computes center-of-pressure, load distribution, symmetry, and gait phases.</li>
+<li><strong>On-device inference</strong> — a quantized INT8 TensorFlow Lite Micro model classifies the gait pattern in under 50 ms.</li>
+<li><strong>Wireless + dashboard</strong> — results and pressure heatmaps stream over BLE to a companion application.</li>
+</ol>
+<p>Each stage has its own constraints, and the constraints are what make the engineering real.</p>
+<h2>1. Sensing: sixteen noisy analog channels</h2>
+<p>The foundation is a custom PCB carrying a 16-element piezoresistive FSR array. FSRs are cheap and thin, which is exactly what you want under a foot — but they are also nonlinear, drift with temperature, and vary unit to unit. Sixteen of them multiplexed onto one ADC means sixteen chances for crosstalk and noise to creep in.</p>
+<p>Two decisions mattered here. First, <strong>analog multiplexing</strong> to read all sixteen channels without sixteen separate ADCs, which keeps the board small and the cost down. Second, a <strong>hardware anti-aliasing filter</strong> ahead of the ADC, so high-frequency noise is removed <em>before</em> sampling rather than trying to clean it up in software afterward. Getting the analog front end right is unglamorous work, but everything downstream inherits its quality — a noisy signal here means a model that learns noise later.</p>
+<h2>2. The real-time firmware pipeline</h2>
+<p>The firmware is bare-metal C, and it has a hard constraint: everything for one sample cycle must complete inside a <strong>10 ms real-time window</strong> to sustain 100 Hz across all channels.</p>
+<p>The data path looks like this:</p>
+<div class="codehilite"><pre><span></span><code>ADC ──(DMA circular buffer)──&gt; FIR digital filter ──&gt; pressure normalization ──&gt; feature vector
+</code></pre></div>
+
+<p>A few choices carry this stage:</p>
+<ul>
+<li><strong>DMA into a circular buffer.</strong> The ADC feeds samples directly into memory via DMA, so the CPU is not babysitting every conversion. This frees the processor to do real work and keeps the sampling rock-steady.</li>
+<li><strong>An FIR digital filter</strong> smooths each channel further, on top of the hardware anti-aliasing. FIR was the right choice for its stable, predictable phase behavior — important when you are about to measure <em>timing</em> features like heel strike and toe-off.</li>
+<li><strong>Pressure normalization</strong> compensates for the per-sensor variation FSRs are notorious for, so a reading means the same thing across the array.</li>
+</ul>
+<p>Doing all of this deterministically inside 10 ms — with no dynamic allocation and no surprises — is the difference between a system that works on the bench and one that works for an hour straight without drifting.</p>
+<h2>3. Feature extraction: turning pressure into biomechanics</h2>
+<p>Raw pressure values are not what a model should learn from. The firmware converts them into biomechanically meaningful features:</p>
+<ul>
+<li><strong>Center of Pressure (CoP)</strong> — the X/Y trajectory of the pressure centroid as weight shifts through a step. This single curve says a lot about how someone walks.</li>
+<li><strong>Total load distribution</strong> across the foot.</li>
+<li><strong>Medial/lateral symmetry index</strong> — how balanced pressure is side to side.</li>
+<li><strong>Anterior/posterior weight ratio</strong> — front-to-back balance.</li>
+<li><strong>Gait phase segmentation</strong> — detecting heel strike, midstance, and toe-off from the pressure pattern.</li>
+</ul>
+<p>Computing these on-device, in real time, means the model receives a compact, informative feature vector instead of a flood of raw samples. It also means the system is doing genuine signal processing, not just shipping numbers off to be figured out elsewhere.</p>
+<h2>4. The hard part: building my own dataset</h2>
+<p>Here is where the project stopped being a firmware exercise and became something harder.</p>
+<p>A gait classifier is only as good as the data it learns from, and there was no ready-made dataset that matched my hardware, my sensor layout, and my feature set. So I built one. Using the Smart Foot hardware itself, I <strong>recorded and labeled over 1,500 gait samples across 50 subjects</strong>.</p>
+<p>Three things about that dataset are worth calling out, because they are what separate a toy result from a defensible one:</p>
+<ul>
+<li><strong>50 subjects, not a handful.</strong> A model trained on three people's walking will happily "work" — and then fall apart on the fourth person. Fifty subjects gives the model enough variety to learn what is common to a gait pattern rather than what is unique to one individual.</li>
+<li><strong>The atypical-gait class came from individuals with real, previously diagnosed gait conditions</strong>, not from healthy volunteers pretending to limp. Simulated abnormal gait is a common shortcut, and it produces a model that recognizes <em>acting</em>, not the real thing. Using genuinely affected gait makes the "at-risk" class mean something.</li>
+<li><strong>A subject-independent split.</strong> This is the detail I am proudest of. The test set contains people the model <em>never saw during training</em> — I held out whole subjects, not random samples. The tempting alternative (splitting samples randomly) lets the model quietly memorize individuals and report a beautiful, meaningless accuracy. Subject-independent evaluation is harder and the honest way to measure whether the model generalizes to a new person.</li>
+</ul>
+<p>Collecting this data was slow, repetitive, logistically fiddly work — the opposite of glamorous. But it is also the part almost no one bothers to do, and it is the reason the results mean anything.</p>
+<blockquote>
+<p><strong>A note on the data:</strong> Because this involved real people, including individuals with diagnosed conditions, the dataset was handled with care for privacy and used strictly for this research prototype. It is not a validated medical dataset, and Smart Foot is a research system, not a diagnostic device.</p>
+</blockquote>
+<h2>5. The model: a neural network that fits on a microcontroller</h2>
+<p>The classifier is a small neural network, <strong>quantized to INT8</strong> and deployed with <strong>TensorFlow Lite Micro</strong> so it runs directly on the microcontroller. It sorts gait into three classes — Normal, Postural Imbalance, and an at-risk gait indicator — and returns a result in <strong>under 50 ms</strong>.</p>
+<p>Quantization is what makes this possible. A full floating-point model would not fit the memory or the compute budget of an embedded target; converting weights and activations to 8-bit integers shrinks the model and speeds up inference dramatically, at a small and manageable cost in accuracy. On a held-out set of <strong>subjects the model had never seen</strong>, it reached over <strong>91% classification accuracy</strong> — a number I trust precisely <em>because</em> of how the split was done.</p>
+<p>Running inference on-device, rather than streaming raw data to the cloud, means the system is self-contained, low-latency, and private by design — the pressure data never has to leave the device to get a result.</p>
+<h2>6. Closing the loop: BLE and the companion dashboard</h2>
+<p>Finally, the system talks to the outside world. A <strong>custom BLE 5.0 GATT profile</strong> streams center-of-pressure trajectories and pressure heatmaps at around 2 KB/s to a companion application, over an encrypted, bonded connection. The dashboard visualizes live pressure heatmaps, CoP overlays, and symmetry indices, and generates readable gait and pressure summaries.</p>
+<p>Designing a custom GATT profile — rather than shoving data through a generic serial-over-BLE service — keeps the wireless link efficient and structured, which matters when you are streaming continuous data on a power budget.</p>
+<h2>What this project actually demonstrates</h2>
+<p>Smart Foot is, on the surface, a gait classifier. Underneath, it is proof of something more useful to a hardware team: the ability to take a connected-device idea through <strong>every</strong> layer it needs to become real — a custom analog front end, a deterministic real-time firmware pipeline, on-device signal processing and ML, wireless streaming, and an application to make sense of it all. And critically, the discipline to build and evaluate a dataset <em>honestly</em>, so the numbers survive scrutiny instead of collapsing under the first hard question.</p>
+<p>That end-to-end ownership — and the willingness to do the slow, unglamorous parts properly — is what turns a promising prototype into a product you can actually trust.</p>
+<hr />
+<h3>About the author</h3>
+<p><strong>Muhammad Shafqat Ashraf</strong> is an Embedded, DSP &amp; Firmware Systems Engineer specializing in ARM Cortex-M platforms, real-time firmware, on-device machine learning, and secure connectivity. He builds connected and low-power embedded products end to end — from custom hardware bring-up to shipped firmware.</p>
+<p>If you are building a sensor-driven or ML-on-the-edge product and want someone who can own the full stack from analog front end to trained model, I'd be glad to talk.</p>
+<ul>
+<li><strong>Portfolio:</strong> <a href="https://shafqat-ashraf.vercel.app">shafqat-ashraf.vercel.app</a></li>
+<li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/muhammad-shafqat-ashraf/">linkedin.com/in/muhammad-shafqat-ashraf</a></li>
+</ul>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Shafqat Ashraf. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/shafqat-ashraf" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/muhammad-shafqat-ashraf/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
