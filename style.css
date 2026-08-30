@@ -603,24 +603,16 @@ main > section + section::before {
     transition: var(--transition);
 }
 
-/* Every card is clickable → opens a detail popup */
+/* Cards with genuine expanded content on click */
 .solution-card,
 .together-card,
 .expertise-card,
 .project-card,
 .pillar,
 .industry-card,
-.echo-category,
 .edu-card,
 .workflow-step,
-.contact-info-card,
-.stat-item,
-.cert-list li {
-    cursor: pointer;
-}
-
-.contact-info-card a,
-.cert-list li a {
+.stat-item {
     cursor: pointer;
 }
 
@@ -815,12 +807,6 @@ main > section + section::before {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     transition: var(--transition);
-    cursor: pointer;
-}
-
-.collab-item:hover {
-    border-color: var(--accent-line);
-    transform: translateY(-4px);
 }
 
 .collab-item i {
@@ -1517,6 +1503,23 @@ main > section + section::before {
 .form-field textarea:focus {
     outline: none;
     border-color: var(--accent-line);
+}
+
+.form-send-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.form-send-row .btn {
+    flex: 1;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .form-send-row {
+        flex-direction: column;
+    }
 }
 
 /* ------------------------------------------------------------ Footer */

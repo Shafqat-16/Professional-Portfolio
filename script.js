@@ -167,12 +167,13 @@ document.querySelectorAll(".tech-insight").forEach(item => {
     });
 });
 
-// ---- Make every card clickable ----
-// Cards without an explicit data-desc build their popup from their own content.
+// ---- Make cards with real expanded content clickable ----
+// Cards carry data-title/data-tech/data-desc when there's genuine depth to show.
+// Cards without one fall back to scraping their own visible content.
 const CARD_SELECTOR = [
-    ".solution-card", ".pillar", ".workflow-step", ".echo-category",
+    ".solution-card", ".pillar", ".workflow-step",
     ".industry-card", ".edu-card", ".timeline-content",
-    ".contact-info-card", ".stat-item", ".cert-list li", ".collab-item", ".together-card"
+    ".stat-item", ".together-card"
 ].join(", ");
 
 function openModal() {
@@ -181,6 +182,15 @@ function openModal() {
 }
 
 function cardModal(card) {
+    // Curated content takes priority over scraping the card's own DOM
+    if (card.dataset.desc) {
+        modalTitle.innerText = card.dataset.title || (card.querySelector("h3, h4")?.innerText) || "Details";
+        modalTech.innerText = card.dataset.tech ? `Focus: ${card.dataset.tech}` : "Overview";
+        modalDesc.innerHTML = card.dataset.desc;
+        openModal();
+        return;
+    }
+
     // Stat tiles: number + label
     if (card.classList.contains("stat-item")) {
         const num = card.querySelector("h3")?.innerText || "";
@@ -263,26 +273,38 @@ window.addEventListener("click", (e) => {
     }
 });
 
-// Project inquiry form -> opens a pre-filled email (no backend involved)
-const projectForm = document.getElementById("project-form");
-if (projectForm) {
-    projectForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const stage = document.getElementById("project-stage").value;
-        const challenge = document.getElementById("project-challenge").value;
-        const platform = document.getElementById("project-platform").value.trim();
-        const description = document.getElementById("project-description").value.trim();
+// Project inquiry form -> lets the visitor choose email or WhatsApp (no backend involved)
+function buildProjectMessage() {
+    const stage = document.getElementById("project-stage").value;
+    const challenge = document.getElementById("project-challenge").value;
+    const platform = document.getElementById("project-platform").value.trim();
+    const description = document.getElementById("project-description").value.trim();
 
-        const subject = `Project inquiry: ${challenge} (${stage})`;
-        const bodyLines = [
-            `Project stage: ${stage}`,
-            `Primary challenge: ${challenge}`,
-            `MCU / Platform: ${platform || "(not specified)"}`,
-            "",
-            "Project description:",
-            description || "(not specified)"
-        ];
-        const mailto = `mailto:m.shafqat1613@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-        window.location.href = mailto;
+    const subject = `Project inquiry: ${challenge} (${stage})`;
+    const bodyLines = [
+        `Project stage: ${stage}`,
+        `Primary challenge: ${challenge}`,
+        `MCU / Platform: ${platform || "(not specified)"}`,
+        "",
+        "Project description:",
+        description || "(not specified)"
+    ];
+    return { subject, body: bodyLines.join("\n") };
+}
+
+const sendViaEmailBtn = document.getElementById("send-via-email");
+if (sendViaEmailBtn) {
+    sendViaEmailBtn.addEventListener("click", () => {
+        const { subject, body } = buildProjectMessage();
+        window.location.href = `mailto:m.shafqat1613@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+}
+
+const sendViaWhatsappBtn = document.getElementById("send-via-whatsapp");
+if (sendViaWhatsappBtn) {
+    sendViaWhatsappBtn.addEventListener("click", () => {
+        const { subject, body } = buildProjectMessage();
+        const text = `${subject}\n\n${body}`;
+        window.open(`https://wa.me/923238901372?text=${encodeURIComponent(text)}`, "_blank");
     });
 }

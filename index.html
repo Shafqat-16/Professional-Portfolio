@@ -230,20 +230,29 @@
                     <p>Principles that shape how I design and deliver embedded systems.</p>
                 </div>
                 <div class="value-pillars">
-                    <div class="pillar reveal">
+                    <div class="pillar reveal"
+                        data-title="Fault-Aware Architecture"
+                        data-tech="Watchdogs · Recovery Paths · State Machines"
+                        data-desc="<div class='spec-overview'><p>Firmware fails. The real question is whether it fails safely, visibly, and recoverably — or silently, in the field, on a customer's hardware.</p></div><div class='spec-section'><h4>What This Looks Like in Practice</h4><ul><li><strong>Watchdog Supervision:</strong> Hardware and software watchdogs sized to the real worst-case execution time of the tasks they protect, not added as an afterthought checkbox.</li><li><strong>Defined Recovery Paths:</strong> Every state machine has an explicit path back to a known-safe state after a fault, rather than assuming the happy path is the only path.</li><li><strong>Deterministic Failure Modes:</strong> Designing so a given fault produces the same, predictable behavior every time — which is what makes a fault debuggable instead of a mystery.</li></ul></div><div class='spec-section'><h4>Why It Matters to You</h4><ul><li>A product that fails predictably is one your support team can diagnose from a log — not one that generates a ticket saying &quot;it just froze.&quot;</li></ul></div>">
                         <div class="pillar-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Fault-Aware Architecture</h3>
                         <p>Designing firmware with deliberate fault handling — watchdogs, defined recovery paths, and
                             deterministic state machines — so failure modes are anticipated instead of discovered in the
                             field.</p>
                     </div>
-                    <div class="pillar reveal">
+                    <div class="pillar reveal"
+                        data-title="Resource-Conscious Optimization"
+                        data-tech="Profiling · Memory Budgeting · Power"
+                        data-desc="<div class='spec-overview'><p>Optimization without measurement is guessing. Before changing anything for performance or memory, the budget gets measured first.</p></div><div class='spec-section'><h4>What This Looks Like in Practice</h4><ul><li><strong>Measure First:</strong> Symbol-level memory analysis (e.g. Zephyr's <code>ram_report</code>/<code>rom_report</code>) before touching anything, so effort goes where the bytes and cycles actually are.</li><li><strong>Right-Sized, Not Minimal:</strong> Stacks, buffers, and heaps sized to their real high-water mark plus a safety margin — not guessed, and not padded &quot;just in case.&quot;</li><li><strong>Power as a Design Constraint:</strong> Treating the power budget as a first-class requirement from the architecture stage, not a tuning pass bolted on at the end.</li></ul></div><div class='spec-section'><h4>Why It Matters to You</h4><ul><li>The optimization that ships is the one that was actually measured — avoiding both the wasted RAM of over-provisioning and the crash-in-production risk of under-provisioning.</li></ul></div>">
                         <div class="pillar-icon"><i class="fas fa-tachometer-alt"></i></div>
                         <h3>Resource-Conscious Optimization</h3>
                         <p>Profiling memory, power, and CPU budgets on constrained microcontrollers before optimizing —
                             so effort goes toward changes that actually move the numbers.</p>
                     </div>
-                    <div class="pillar reveal">
+                    <div class="pillar reveal"
+                        data-title="Maintainable Architecture"
+                        data-tech="Modular Drivers · Interfaces · Documentation"
+                        data-desc="<div class='spec-overview'><p>The firmware I hand off needs to survive contact with your team after I'm no longer in the room.</p></div><div class='spec-section'><h4>What This Looks Like in Practice</h4><ul><li><strong>Modular Drivers:</strong> Peripheral drivers written behind clear interfaces, so swapping a sensor or MCU variant doesn't mean rewriting application logic.</li><li><strong>Documented Decisions:</strong> The &quot;why,&quot; not just the &quot;what&quot; — so a future maintainer isn't left reverse-engineering intent from code alone.</li><li><strong>Clean Handoff:</strong> Source code and structure organized for a team to pick up and extend, not just for a demo.</li></ul></div><div class='spec-section'><h4>Why It Matters to You</h4><ul><li>Firmware only one person can safely touch is a liability — this is about reducing your dependency on any single engineer, including me.</li></ul></div>">
                         <div class="pillar-icon"><i class="fas fa-project-diagram"></i></div>
                         <h3>Maintainable Architecture</h3>
                         <p>Modular drivers, clear interfaces, and documented decisions, so the firmware I hand off can be
@@ -263,37 +272,55 @@
                         production system that's misbehaving.</p>
                 </div>
                 <div class="solutions-grid">
-                    <div class="solution-card reveal">
+                    <div class="solution-card reveal"
+                        data-title="Embedded Firmware Development"
+                        data-tech="C/C++ · ARM Cortex-M · RTOS Architecture"
+                        data-desc="<div class='spec-overview'><p><strong>Problem:</strong> New embedded products need firmware structured to grow — drivers, RTOS task architecture, and communication interfaces that don't have to be rewritten every time a requirement changes.</p></div><div class='spec-section'><h4>Capability</h4><ul><li>Modular C/C++ firmware built around clear interfaces between drivers, application logic, and communication layers.</li><li>Zephyr RTOS task/queue/semaphore primitives used to keep responsibilities separated — sensor acquisition, control, and communication each in their own lane.</li></ul></div><div class='spec-section'><h4>Outcome</h4><ul><li>A codebase your team can extend without archaeology — new peripherals and features added at the interface boundary instead of threaded through existing logic.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-microchip"></i></div>
                         <h3>Embedded Firmware Development</h3>
                         <p>Modular C/C++ firmware for ARM Cortex-M and connected embedded products — drivers, RTOS
                             architecture, state machines, peripherals, and communication interfaces.</p>
                     </div>
-                    <div class="solution-card reveal">
+                    <div class="solution-card reveal"
+                        data-title="Firmware Debugging & Rescue"
+                        data-tech="Root-Cause Analysis · J-Link · Hardware Instrumentation"
+                        data-desc="<div class='spec-overview'><p><strong>Problem:</strong> The hardest bugs in embedded systems — intermittent crashes, timing-dependent failures, communication faults that only show up under load — are exactly the ones generic debugging advice doesn't help with.</p></div><div class='spec-section'><h4>Capability</h4><ul><li>Systematic root-cause investigation using J-Link debugging, hardware instrumentation (oscilloscope/logic analyzer), and structured hypothesis testing rather than guess-and-recompile.</li></ul></div><div class='spec-section'><h4>Outcome</h4><ul><li>A fixed root cause with a clear explanation of why it happened — not a patch that happens to make the symptom go away.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-bug"></i></div>
                         <h3>Firmware Debugging & Rescue</h3>
                         <p>Diagnosing firmware crashes, timing issues, peripheral failures, communication problems,
                             memory constraints, and difficult integration bugs.</p>
                     </div>
-                    <div class="solution-card reveal">
+                    <div class="solution-card reveal"
+                        data-title="Embedded AI & DSP"
+                        data-tech="DSP · FFT · TinyML · Quantization"
+                        data-desc="<div class='spec-overview'><p><strong>Problem:</strong> Getting a sensing or ML idea from &quot;works in Python&quot; to &quot;runs deterministically on a microcontroller&quot; is a different engineering problem than training the model.</p></div><div class='spec-section'><h4>Capability</h4><ul><li>DSP pipelines — filtering, FFT, feature extraction — and quantized model deployment, validated with cross-language testing so the embedded implementation is checked against the reference rather than assumed to match.</li></ul></div><div class='spec-section'><h4>Outcome</h4><ul><li>On-device intelligence that runs within your memory and timing budget — demonstrated in the Vibration Anomaly Detection and Smart Foot case studies below.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-brain"></i></div>
                         <h3>Embedded AI & DSP</h3>
                         <p>DSP pipelines, FFT processing, feature extraction, anomaly detection, and lightweight ML
                             inference for resource-constrained devices.</p>
                     </div>
-                    <div class="solution-card reveal">
+                    <div class="solution-card reveal"
+                        data-title="Hardware Bring-up & Integration"
+                        data-tech="Peripheral Validation · Board Bring-up"
+                        data-desc="<div class='spec-overview'><p><strong>Problem:</strong> A new PCB revision or first prototype run always surfaces surprises — peripherals that don't respond as datasheeted, timing that doesn't match assumptions, integration issues that only show up with real hardware in the loop.</p></div><div class='spec-section'><h4>Capability</h4><ul><li>Peripheral validation, board bring-up, and systematic hardware-software integration debugging using lab instrumentation.</li></ul></div><div class='spec-section'><h4>Outcome</h4><ul><li>A working path from bare board to validated firmware, with issues found and documented as they're resolved — not discovered later in production.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-tools"></i></div>
                         <h3>Hardware Bring-up & Integration</h3>
                         <p>Firmware/hardware integration, peripheral validation, board bring-up, and system-level
                             debugging.</p>
                     </div>
-                    <div class="solution-card reveal">
+                    <div class="solution-card reveal"
+                        data-title="Connectivity & IoT"
+                        data-tech="BLE · Cellular/NB-IoT · Secure Authentication"
+                        data-desc="<div class='spec-overview'><p><strong>Problem:</strong> Connecting a device is more than opening a socket — it's memory budgeting for the stack, authentication between components, and a cloud integration that doesn't assume a perfect network.</p></div><div class='spec-section'><h4>Capability</h4><ul><li>BLE, cellular/NB-IoT, and inter-MCU secure communication — challenge-response authentication, CRC-protected framing, replay protection — plus UART/SPI/I2C at the peripheral level.</li></ul></div><div class='spec-section'><h4>Outcome</h4><ul><li>A connectivity layer budgeted for the memory it actually has and hardened against real network failure modes — not just a demo that works on the bench.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-wifi"></i></div>
                         <h3>Connectivity & IoT</h3>
                         <p>BLE, cellular, MQTT, CAN, UART, SPI, and I2C communication layers for connected embedded
                             products.</p>
                     </div>
-                    <div class="solution-card reveal">
+                    <div class="solution-card reveal"
+                        data-title="Optimization & Production Readiness"
+                        data-tech="Memory Profiling · Static Allocation · Testing"
+                        data-desc="<div class='spec-overview'><p><strong>Problem:</strong> Firmware that works in the lab and firmware that's ready to ship are not the same thing — production needs measured resource usage, deterministic behavior, and test coverage.</p></div><div class='spec-section'><h4>Capability</h4><ul><li>Symbol-level memory profiling before optimizing, static allocation discipline, and automated test suites — including fault injection and fuzzing where warranted — built alongside the firmware, not after.</li></ul></div><div class='spec-section'><h4>Outcome</h4><ul><li>A production-readiness picture backed by numbers — memory usage measured, not guessed; behavior tested, not assumed.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-check-double"></i></div>
                         <h3>Optimization & Production Readiness</h3>
                         <p>Improving memory usage, execution efficiency, deterministic behavior, fault handling, and
@@ -367,36 +394,54 @@
                         your existing hardware, firmware, and product workflow.</p>
                 </div>
                 <div class="workflow-grid">
-                    <div class="workflow-step reveal">
+                    <div class="workflow-step reveal"
+                        data-title="01 — Understand"
+                        data-tech="Requirements · Constraints · Scope"
+                        data-desc="<div class='spec-overview'><p>Skipping this step is the most common cause of rework — building the right thing wrong is still wrong.</p></div><div class='spec-section'><h4>What Happens</h4><ul><li>Requirements gathering, a look at existing architecture and hardware constraints, and — critically — understanding the specific problem you're actually trying to solve, which is sometimes different from how it was first framed.</li></ul></div><div class='spec-section'><h4>Output</h4><ul><li>A shared understanding of scope, constraints, and what &quot;done&quot; looks like, agreed before any design work starts.</li></ul></div>">
                         <div class="step-num">01</div>
                         <h3>Understand</h3>
                         <p>Requirements, hardware constraints, existing architecture, and the specific problem you're
                             trying to solve.</p>
                     </div>
-                    <div class="workflow-step reveal">
+                    <div class="workflow-step reveal"
+                        data-title="02 — Plan"
+                        data-tech="Architecture · Interfaces · Risk"
+                        data-desc="<div class='spec-overview'><p>Architecture decisions are expensive to reverse once code is written against them.</p></div><div class='spec-section'><h4>What Happens</h4><ul><li>Firmware architecture, module interfaces, identified risks, and deliverables laid out and agreed with you before implementation begins.</li></ul></div><div class='spec-section'><h4>Output</h4><ul><li>A plan you've seen and signed off on — no surprises about scope once building starts.</li></ul></div>">
                         <div class="step-num">02</div>
                         <h3>Plan</h3>
                         <p>Firmware architecture, interfaces, risks, and deliverables — agreed before code gets
                             written.</p>
                     </div>
-                    <div class="workflow-step reveal">
+                    <div class="workflow-step reveal"
+                        data-title="03 — Build"
+                        data-tech="Firmware · Drivers · RTOS · DSP"
+                        data-desc="<div class='spec-overview'><p>Implementation against the agreed plan — firmware, drivers, RTOS components, DSP, connectivity, or Edge AI, whichever the project calls for.</p></div><div class='spec-section'><h4>What Happens</h4><ul><li>Development with the same discipline described throughout this site — static allocation where appropriate, modular interfaces, and fault handling built in rather than retrofitted.</li></ul></div><div class='spec-section'><h4>Output</h4><ul><li>Working code, reviewed against the plan as it's built, not just at the end.</li></ul></div>">
                         <div class="step-num">03</div>
                         <h3>Build</h3>
                         <p>Firmware, drivers, RTOS components, DSP, connectivity, or Edge AI — implemented against the
                             plan.</p>
                     </div>
-                    <div class="workflow-step reveal">
+                    <div class="workflow-step reveal"
+                        data-title="04 — Validate"
+                        data-tech="Testing · Integration · Resource Analysis"
+                        data-desc="<div class='spec-overview'><p>&quot;It works on my bench&quot; and &quot;it's ready&quot; are different claims — validation is what closes that gap.</p></div><div class='spec-section'><h4>What Happens</h4><ul><li>Testing, debugging, integration checks, and resource analysis — scaled to what the project actually needs, from basic bring-up tests to structured fault injection and fuzzing for safety- or security-relevant systems.</li></ul></div><div class='spec-section'><h4>Output</h4><ul><li>Evidence, not assurance — test results you can look at yourself.</li></ul></div>">
                         <div class="step-num">04</div>
                         <h3>Validate</h3>
                         <p>Testing, debugging, integration checks, and resource analysis before anything is called
                             done.</p>
                     </div>
-                    <div class="workflow-step reveal">
+                    <div class="workflow-step reveal"
+                        data-title="05 — Deliver"
+                        data-tech="Source Code · Documentation"
+                        data-desc="<div class='spec-overview'><p>A deliverable is more than a zip file of source code.</p></div><div class='spec-section'><h4>What Happens</h4><ul><li>Clean, documented source code and validation results handed off in a form your team can pick up and run with.</li></ul></div><div class='spec-section'><h4>Output</h4><ul><li>Documentation that explains the &quot;why&quot; behind non-obvious decisions, not just a code dump.</li></ul></div>">
                         <div class="step-num">05</div>
                         <h3>Deliver</h3>
                         <p>Clean source code, documentation, and validation results your team can pick up directly.</p>
                     </div>
-                    <div class="workflow-step reveal">
+                    <div class="workflow-step reveal"
+                        data-title="06 — Support"
+                        data-tech="Maintenance · Optimization"
+                        data-desc="<div class='spec-overview'><p>Products keep evolving after the initial delivery.</p></div><div class='spec-section'><h4>What Happens</h4><ul><li>Available for maintenance, optimization, and follow-on feature work as your product and requirements change.</li></ul></div><div class='spec-section'><h4>Output</h4><ul><li>Continuity — you're not starting from zero with a new engineer every time something needs to change.</li></ul></div>">
                         <div class="step-num">06</div>
                         <h3>Support</h3>
                         <p>Available for maintenance, optimization, and follow-on work as the product evolves.</p>
@@ -443,27 +488,42 @@
                     <h2>Ways to <span>Work Together</span></h2>
                 </div>
                 <div class="engagement-grid">
-                    <div class="together-card reveal">
+                    <div class="together-card reveal"
+                        data-title="Project-Based Development"
+                        data-tech="Defined Scope · Fixed Deliverable"
+                        data-desc="<div class='spec-overview'><p>The most common engagement shape — a defined firmware feature, subsystem, prototype, or communication layer with a clear scope and endpoint.</p></div><div class='spec-section'><h4>Best Fit</h4><ul><li>You know what needs to be built and want it delivered as a self-contained piece of work.</li></ul></div><div class='spec-section'><h4>What to Expect</h4><ul><li>Scoped requirements up front (see &quot;How I Work With Engineering Teams&quot; above), then delivery against that scope.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-cube"></i></div>
                         <h3>Project-Based Development</h3>
                         <p>Build a defined firmware feature, subsystem, prototype, or communication layer.</p>
                     </div>
-                    <div class="together-card reveal">
+                    <div class="together-card reveal"
+                        data-title="Firmware Debugging & Optimization"
+                        data-tech="Root-Cause Investigation"
+                        data-desc="<div class='spec-overview'><p>Investigating difficult existing firmware and performance problems in a codebase you already have.</p></div><div class='spec-section'><h4>Best Fit</h4><ul><li>A system that's misbehaving, underperforming, or hitting memory/timing limits, and needs someone to dig in rather than start over.</li></ul></div><div class='spec-section'><h4>What to Expect</h4><ul><li>Root-cause investigation using your actual codebase and hardware — not a rewrite-from-scratch recommendation unless that's genuinely warranted.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-bug"></i></div>
                         <h3>Firmware Debugging & Optimization</h3>
                         <p>Investigate difficult existing firmware and performance problems.</p>
                     </div>
-                    <div class="together-card reveal">
+                    <div class="together-card reveal"
+                        data-title="Embedded AI Integration"
+                        data-tech="DSP · TinyML · Cross-Validation"
+                        data-desc="<div class='spec-overview'><p>Developing and optimizing DSP/ML pipelines for embedded devices — from feature engineering through quantized on-device inference.</p></div><div class='spec-section'><h4>Best Fit</h4><ul><li>You have a sensing or classification problem and need it running on constrained hardware, not a server.</li></ul></div><div class='spec-section'><h4>What to Expect</h4><ul><li>A cross-validated implementation — the embedded output is checked against a reference implementation, not just assumed correct.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-brain"></i></div>
                         <h3>Embedded AI Integration</h3>
                         <p>Develop and optimize DSP/ML pipelines for embedded devices.</p>
                     </div>
-                    <div class="together-card reveal">
+                    <div class="together-card reveal"
+                        data-title="Engineering Team Collaboration"
+                        data-tech="Embedded In Your Workflow"
+                        data-desc="<div class='spec-overview'><p>Working alongside an existing firmware, hardware, AI, or product engineering team as an additional set of hands with embedded-specific depth.</p></div><div class='spec-section'><h4>Best Fit</h4><ul><li>Your team has the product vision and some of the pieces, and needs firmware expertise plugged into your existing process — your tools, your git workflow, your standups.</li></ul></div><div class='spec-section'><h4>What to Expect</h4><ul><li>Someone who fits into how your team already works, not someone who requires you to adapt to theirs.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-people-arrows"></i></div>
                         <h3>Engineering Team Collaboration</h3>
                         <p>Work alongside an existing firmware, hardware, AI, or product engineering team.</p>
                     </div>
-                    <div class="together-card reveal">
+                    <div class="together-card reveal"
+                        data-title="Long-Term Firmware Support"
+                        data-tech="Ongoing Ownership"
+                        data-desc="<div class='spec-overview'><p>Maintenance, optimization, and follow-on development after initial delivery, on a recurring basis.</p></div><div class='spec-section'><h4>Best Fit</h4><ul><li>A shipped or shipping product that needs ongoing firmware ownership without hiring a full-time engineer for it yet.</li></ul></div><div class='spec-section'><h4>What to Expect</h4><ul><li>Continuity of context — the same engineer who knows why decisions were made, available as the product evolves.</li></ul></div>">
                         <div class="solution-icon"><i class="fas fa-life-ring"></i></div>
                         <h3>Long-Term Firmware Support</h3>
                         <p>Maintenance, optimization, integration, and future product development.</p>
@@ -571,19 +631,28 @@
                         </p>
 
                         <div class="value-pillars">
-                            <div class="pillar">
+                            <div class="pillar"
+                                data-title="Reusable Foundations"
+                                data-tech="HAL Abstractions · RTOS Patterns"
+                                data-desc="<div class='spec-overview'><p>Building the same driver from scratch on every project is a tax worth not paying twice.</p></div><div class='spec-section'><h4>In Practice</h4><ul><li>Hardware-abstraction layers and RTOS task patterns written so the next feature — the same driver on a new MCU variant, the same authentication pattern on a new project — starts from a working foundation instead of a blank file.</li><li>The challenge-response UART authentication pattern built for the ESP32/nRF link is the same design discipline carried into the later multi-MCU security work.</li></ul></div><div class='spec-section'><h4>Why It Matters to You</h4><ul><li>Faster iteration on features 2 through N, because feature 1 was built to be extended.</li></ul></div>">
                                 <i class="fas fa-rocket"></i>
                                 <h4>Reusable Foundations</h4>
                                 <p>Building modular HAL and RTOS abstractions that shorten iteration time on the next
                                     feature instead of being thrown away after one project.</p>
                             </div>
-                            <div class="pillar">
+                            <div class="pillar"
+                                data-title="Deliberate Fault Handling"
+                                data-tech="Watchdog Supervision · Fault Injection"
+                                data-desc="<div class='spec-overview'><p>The Secure Multi-MCU Smart Access project's validation intentionally tries to break the system — a 2,000-iteration fuzz campaign against the protocol decoder and 13 end-to-end fault-injection scenarios covering malformed packets, timeouts, and actuator failures.</p></div><div class='spec-section'><h4>In Practice</h4><ul><li>Treating &quot;what happens when this fails&quot; as a design question from the start, not a bug report to react to later.</li><li>Watchdog supervision, timeout handling, and explicit error reporting architected in, then verified with tooling built specifically to try to break them.</li></ul></div><div class='spec-section'><h4>Why It Matters to You</h4><ul><li>Confidence in a system's reliability should come from evidence, not assumption — which is also why validation scope is always stated plainly rather than implied.</li></ul></div>">
                                 <i class="fas fa-shield-alt"></i>
                                 <h4>Deliberate Fault Handling</h4>
                                 <p>Designing watchdog supervision and deterministic task scheduling so failure modes
                                     are handled on purpose, not discovered after deployment.</p>
                             </div>
-                            <div class="pillar">
+                            <div class="pillar"
+                                data-title="Practical Edge AI"
+                                data-tech="TinyML · INT8 Quantization"
+                                data-desc="<div class='spec-overview'><p>Edge AI is only useful if it fits the hardware you actually have.</p></div><div class='spec-section'><h4>In Practice</h4><ul><li>On Smart Foot, that meant a quantized INT8 model deployed to a microcontroller instead of assuming a more powerful chip.</li><li>On the vibration anomaly detection pipeline, a compact 7-16-3 MLP was sized deliberately, with cross-language validation (Python reference vs. embedded C) confirming the quantized model didn't quietly lose accuracy along the way — 99.33% float/INT8 agreement.</li></ul></div><div class='spec-section'><h4>Why It Matters to You</h4><ul><li>Intelligence added to your product should work within your existing bill of materials, not justify a hardware respin.</li></ul></div>">
                                 <i class="fas fa-chart-line"></i>
                                 <h4>Practical Edge AI</h4>
                                 <p>Adding on-device intelligence with quantized TinyML models sized to fit existing
@@ -615,7 +684,10 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">OCT 2025 - Present</div>
-                        <div class="timeline-content">
+                        <div class="timeline-content"
+                            data-title="Embedded Firmware Engineer — Techanzy Limited"
+                            data-tech="ARM Cortex-M · Zephyr RTOS · BLE/NB-IoT"
+                            data-desc="<div class='spec-overview'><p>My current role, where I work across ARM Cortex-M firmware, Zephyr RTOS, and secure IoT connectivity on real product development.</p></div><div class='spec-section'><h4>What I Did</h4><ul><li>Developed real-time embedded firmware in C/C++ for ARM Cortex-M platforms (nRF52 DK, nRF9160).</li><li>Designed and implemented Zephyr RTOS-based applications including task scheduling, interrupt handling, and inter-task communication.</li><li>Developed low-level peripheral drivers (UART, SPI, I2C, GPIO, ADC).</li><li>Implemented a secure UART-based authentication protocol between ESP32 and nRF platform to ensure data privacy and device validation.</li><li>Integrated BLE and NB-IoT communication stacks for IoT connectivity.</li><li>Performed board bring-up, firmware debugging, and hardware validation using a J-Link debugger and lab instrumentation.</li><li>Optimized firmware for power efficiency in IoT applications.</li><li>Maintained version control using Git.</li></ul></div>">
                             <h3>Embedded Firmware Engineer</h3>
                             <h4>Techanzy Limited - Lahore, Pakistan</h4>
                             <ul>
@@ -634,7 +706,10 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">Hackathon</div>
-                        <div class="timeline-content">
+                        <div class="timeline-content"
+                            data-title="AI Systems Deployment Engineer — Techanzy Limited"
+                            data-tech="Raspberry Pi 4 · Voice AI · Hackathon"
+                            data-desc="<div class='spec-overview'><p>A hackathon project where I took a voice-AI concept from idea to a live client demonstration on physical hardware.</p></div><div class='spec-section'><h4>What I Did</h4><ul><li>Deployed AI voice agents using the ElevenLabs API integrated with Raspberry Pi 4.</li><li>Designed a physical AI interaction system combining embedded hardware with cloud-based voice AI.</li><li>Implemented secure communication between the edge device and the AI processing module.</li><li>Managed full system deployment including configuration, testing, and client demonstration.</li><li>Ensured stable real-time voice response performance.</li></ul></div>">
                             <h3>AI Systems Deployment Engineer <span style="font-size: 13px; color: var(--main-color); font-weight: 600;">(Embedded + Edge AI)</span></h3>
                             <h4>Techanzy Limited</h4>
                             <ul>
@@ -650,7 +725,10 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">JULY 2025 - OCT 2025</div>
-                        <div class="timeline-content">
+                        <div class="timeline-content"
+                            data-title="Process Engineer — Xiaomi Mi Technology"
+                            data-tech="Hardware Testing · PCB Validation"
+                            data-desc="<div class='spec-overview'><p>Hands-on exposure to hardware testing and PCB validation processes before moving into firmware-focused work.</p></div><div class='spec-section'><h4>What I Did</h4><ul><li>Supported embedded hardware testing, PCB validation, and electronic system troubleshooting.</li><li>Assisted in firmware bring-up activities and peripheral-level validation.</li><li>Prepared technical documentation, feasibility notes, and system improvement reports.</li><li>Coordinated with cross-functional teams for smooth technical operations.</li></ul></div>">
                             <h3>Process Engineer</h3>
                             <h4>Xiaomi Mi Technology - Lahore, Pakistan</h4>
                             <ul>
@@ -665,7 +743,10 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">AUG 2024 - JULY 2025</div>
-                        <div class="timeline-content">
+                        <div class="timeline-content"
+                            data-title="Electrical Engineer (Manufacturing Excellence) — Challenge Apparels Limited"
+                            data-tech="Systems Analysis · Process Documentation"
+                            data-desc="<div class='spec-overview'><p>My first engineering role, focused on process and systems-level analysis in a manufacturing environment.</p></div><div class='spec-section'><h4>What I Did</h4><ul><li>Coordinated cross-functional engineering teams to optimize manufacturing processes, technical workflows, and system efficiency.</li><li>Performed system-level analysis and troubleshooting to identify bottlenecks and support continuous process optimization.</li><li>Developed and maintained technical, process, and compliance documentation aligned with operational and quality standards.</li></ul></div>">
                             <h3>Electrical Engineer (Manufacturing Excellence)</h3>
                             <h4>Challenge Apparels Limited - Lahore, Pakistan</h4>
                             <ul>
@@ -808,27 +889,42 @@
                     <h2>Who I Work <span>Best With</span></h2>
                 </div>
                 <div class="industry-grid">
-                    <div class="industry-card reveal">
+                    <div class="industry-card reveal"
+                        data-title="Hardware Startups"
+                        data-tech="First Product · Architecture From Zero"
+                        data-desc="<div class='spec-overview'><p>Building their first embedded product, often without an in-house firmware hire yet.</p></div><div class='spec-section'><h4>What I Bring</h4><ul><li>Firmware architecture decisions made once, correctly, rather than accumulated as technical debt through a rushed MVP.</li></ul></div><div class='spec-section'><h4>Good Fit If</h4><ul><li>You need the first version of the firmware built right, because there's no one else yet to catch mistakes early.</li></ul></div>">
                         <i class="fas fa-rocket"></i>
                         <h4>Hardware Startups</h4>
                         <p>Building their first embedded product.</p>
                     </div>
-                    <div class="industry-card reveal">
+                    <div class="industry-card reveal"
+                        data-title="Product Engineering Teams"
+                        data-tech="Embedded-Specific Depth"
+                        data-desc="<div class='spec-overview'><p>Teams with existing engineering capacity that need additional firmware-specific expertise for a defined stretch of work.</p></div><div class='spec-section'><h4>What I Bring</h4><ul><li>Depth in the embedded layer specifically — RTOS architecture, driver development, DSP/Edge AI — that complements a team focused on the broader product.</li></ul></div><div class='spec-section'><h4>Good Fit If</h4><ul><li>Your team is strong elsewhere and needs embedded expertise for a specific feature or problem, not a full-time hire.</li></ul></div>">
                         <i class="fas fa-cubes"></i>
                         <h4>Product Engineering Teams</h4>
                         <p>Needing additional firmware expertise.</p>
                     </div>
-                    <div class="industry-card reveal">
+                    <div class="industry-card reveal"
+                        data-title="IoT Companies"
+                        data-tech="Connectivity · Security"
+                        data-desc="<div class='spec-overview'><p>Developing connected devices where BLE, cellular, or other wireless connectivity is core to the product.</p></div><div class='spec-section'><h4>What I Bring</h4><ul><li>Connectivity work that accounts for real-world constraints — memory budgets, authentication between components, and network conditions that aren't always ideal.</li></ul></div><div class='spec-section'><h4>Good Fit If</h4><ul><li>Connectivity reliability and security are product requirements, not afterthoughts.</li></ul></div>">
                         <i class="fas fa-wifi"></i>
                         <h4>IoT Companies</h4>
                         <p>Developing connected devices.</p>
                     </div>
-                    <div class="industry-card reveal">
+                    <div class="industry-card reveal"
+                        data-title="Industrial Teams"
+                        data-tech="Sensing · Control · Reliability"
+                        data-desc="<div class='spec-overview'><p>Working with sensing, control, or connectivity in industrial or manufacturing contexts.</p></div><div class='spec-section'><h4>What I Bring</h4><ul><li>A fault-aware design approach suited to environments where firmware failures carry real operational cost.</li></ul></div><div class='spec-section'><h4>Good Fit If</h4><ul><li>Reliability and diagnosability matter more than shipping the absolute fastest MVP.</li></ul></div>">
                         <i class="fas fa-industry"></i>
                         <h4>Industrial Teams</h4>
                         <p>Working with sensing, control, or connectivity.</p>
                     </div>
-                    <div class="industry-card reveal">
+                    <div class="industry-card reveal"
+                        data-title="R&D Teams"
+                        data-tech="DSP · Edge AI · Prototyping"
+                        data-desc="<div class='spec-overview'><p>Exploring DSP, Edge AI, and embedded intelligence, often at the research-prototype stage.</p></div><div class='spec-section'><h4>What I Bring</h4><ul><li>A track record of taking a sensing/ML idea through the full chain to an on-device implementation — including the unglamorous parts, like validating a quantized model doesn't quietly lose accuracy, or collecting a dataset when none exists.</li></ul></div><div class='spec-section'><h4>Good Fit If</h4><ul><li>You need someone who can own the embedded side of a research prototype end to end.</li></ul></div>">
                         <i class="fas fa-flask"></i>
                         <h4>R&D Teams</h4>
                         <p>Exploring DSP and embedded intelligence.</p>
@@ -943,8 +1039,8 @@
                     <form id="project-form" class="contact-info-card reveal"
                         style="background: rgba(6, 182, 212, 0.03); border-color: var(--main-color);">
                         <h3>Project <span>Details</span></h3>
-                        <p>Fill this in and it'll open a pre-filled email — nothing is sent without you reviewing it
-                            first.</p>
+                        <p>Fill this in, then send it via email or WhatsApp — nothing is sent without you reviewing
+                            it first.</p>
 
                         <div class="form-grid">
                             <label class="form-field">
@@ -981,9 +1077,14 @@
                             </label>
                         </div>
 
-                        <button type="submit" class="btn primary" style="margin-top: 22px; width: 100%; justify-content: center;">
-                            Start a Technical Discussion <i class="fas fa-paper-plane"></i>
-                        </button>
+                        <div class="form-send-row">
+                            <button type="button" id="send-via-email" class="btn primary">
+                                <i class="fas fa-envelope"></i> Send via Email
+                            </button>
+                            <button type="button" id="send-via-whatsapp" class="btn primary">
+                                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
