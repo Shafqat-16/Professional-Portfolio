@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shafqat-ashraf.pages.dev/sitemap.xml
+Sitemap: https://shafqat-ashraf.vercel.app/sitemap.xml

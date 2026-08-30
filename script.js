@@ -171,8 +171,8 @@ document.querySelectorAll(".tech-insight").forEach(item => {
 // Cards without an explicit data-desc build their popup from their own content.
 const CARD_SELECTOR = [
     ".solution-card", ".pillar", ".workflow-step", ".echo-category",
-    ".industry-card", ".skill-category", ".edu-card", ".timeline-content",
-    ".contact-info-card", ".stat-item", ".cert-list li"
+    ".industry-card", ".edu-card", ".timeline-content",
+    ".contact-info-card", ".stat-item", ".cert-list li", ".collab-item", ".together-card"
 ].join(", ");
 
 function openModal() {
@@ -227,8 +227,8 @@ function cardModal(card) {
 }
 
 document.addEventListener("click", (e) => {
-    // Let links, buttons, and the already-wired cards handle their own clicks
-    if (e.target.closest("a, button, .tech-insight, .view-project, .modal-content, .menu-btn")) return;
+    // Let links, buttons, form fields, and the already-wired cards handle their own clicks
+    if (e.target.closest("a, button, select, input, textarea, label, .tech-insight, .view-project, .modal-content, .menu-btn")) return;
 
     // Project cards reuse their rich technical breakdown
     const proj = e.target.closest(".project-card");
@@ -262,3 +262,27 @@ window.addEventListener("click", (e) => {
         document.body.style.overflow = "auto";
     }
 });
+
+// Project inquiry form -> opens a pre-filled email (no backend involved)
+const projectForm = document.getElementById("project-form");
+if (projectForm) {
+    projectForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const stage = document.getElementById("project-stage").value;
+        const challenge = document.getElementById("project-challenge").value;
+        const platform = document.getElementById("project-platform").value.trim();
+        const description = document.getElementById("project-description").value.trim();
+
+        const subject = `Project inquiry: ${challenge} (${stage})`;
+        const bodyLines = [
+            `Project stage: ${stage}`,
+            `Primary challenge: ${challenge}`,
+            `MCU / Platform: ${platform || "(not specified)"}`,
+            "",
+            "Project description:",
+            description || "(not specified)"
+        ];
+        const mailto = `mailto:m.shafqat1613@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+        window.location.href = mailto;
+    });
+}

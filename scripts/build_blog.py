@@ -28,11 +28,11 @@ NAV = """    <nav id="navbar">
             <a href="/" class="logo">M.<span>Shafqat</span></a>
             <ul class="nav-links">
                 <li><a href="/#home">Home</a></li>
-                <li><a href="/#about">Profile</a></li>
+                <li><a href="/#solutions">Services</a></li>
+                <li><a href="/#projects">Work</a></li>
                 <li><a href="/#experience">Experience</a></li>
-                <li><a href="/#skills">Competencies</a></li>
-                <li><a href="/#projects">Case Studies</a></li>
-                <li><a href="/blog/" class="active">Writing</a></li>
+                <li><a href="/blog/" class="active">Engineering Notes</a></li>
+                <li><a href="/#about">About</a></li>
                 <li><a href="/#contact" class="nav-contact">Contact</a></li>
             </ul>
             <div class="menu-btn">
@@ -47,9 +47,8 @@ FOOTER = """    <footer>
         <div class="container">
             <p>&copy; 2026 Shafqat Ashraf. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/shafqat-ashraf" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/Shafqat-16" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/muhammad-shafqat-ashraf/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>"""
@@ -171,9 +170,9 @@ def render_post_page(post, content_html, minutes):
     <main>
         <article class="section-padding post-page">
             <div class="container post-container">
-                <a href="/blog/" class="post-back">&larr; All Writing</a>
+                <a href="/blog/" class="post-back">&larr; All Engineering Notes</a>
                 <header class="post-header reveal">
-                    <span class="section-tag">Writing</span>
+                    <span class="section-tag">Engineering Notes</span>
                     <h1 class="post-title">{title}</h1>
                     <div class="post-meta">
                         <span><i class="fas fa-calendar"></i> {date_display}</span>
@@ -229,9 +228,9 @@ def render_index_page(posts):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing | Shafqat Ashraf</title>
+    <title>Engineering Notes | Shafqat Ashraf</title>
     <meta name="description"
-        content="Technical write-ups on embedded firmware, DSP, RTOS, and edge intelligence by Muhammad Shafqat Ashraf.">
+        content="Practical engineering notes on embedded firmware, RTOS architecture, DSP, Edge AI, connectivity, debugging, and resource-constrained systems.">
     <meta name="author" content="{AUTHOR_NAME}">
     <link rel="canonical" href="{canonical}">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -239,9 +238,9 @@ def render_index_page(posts):
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{canonical}">
-    <meta property="og:title" content="Writing | Shafqat Ashraf">
+    <meta property="og:title" content="Engineering Notes | Shafqat Ashraf">
     <meta property="og:description"
-        content="Technical write-ups on embedded firmware, DSP, RTOS, and edge intelligence.">
+        content="Practical engineering notes on embedded firmware, RTOS architecture, DSP, Edge AI, connectivity, debugging, and resource-constrained systems.">
     <meta property="og:image" content="{SITE_URL}/profile.jpg">
 {HEAD_ASSETS}
 </head>
@@ -253,10 +252,10 @@ def render_index_page(posts):
         <section id="writing" class="section-padding blog-hero">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Writing</span>
-                    <h1 class="blog-hero-title">Field Notes & <span>Technical Write-ups</span></h1>
-                    <p>Long-form engineering notes on firmware, DSP, and edge intelligence — the problems I actually
-                        solved, and how.</p>
+                    <span class="section-tag">Engineering Notes</span>
+                    <h1 class="blog-hero-title">Engineering <span>Notes</span></h1>
+                    <p>Practical engineering notes on embedded firmware, RTOS architecture, DSP, Edge AI,
+                        connectivity, debugging, and resource-constrained systems.</p>
                 </div>
                 <div class="posts-grid">
 {cards_html}

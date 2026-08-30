@@ -104,6 +104,35 @@ img {
     color: var(--accent-ink);
 }
 
+/* ------------------------------------------------------------ Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 2000;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
 /* ------------------------------------------------------------ Typography */
 h1,
 h2,
@@ -559,11 +588,11 @@ main > section + section::before {
 
 /* ------------------------------------------------------------ Card foundation */
 .solution-card,
+.together-card,
 .expertise-card,
 .project-card,
 .pillar,
 .industry-card,
-.skill-category,
 .echo-category,
 .edu-card,
 .workflow-step,
@@ -576,11 +605,11 @@ main > section + section::before {
 
 /* Every card is clickable → opens a detail popup */
 .solution-card,
+.together-card,
 .expertise-card,
 .project-card,
 .pillar,
 .industry-card,
-.skill-category,
 .echo-category,
 .edu-card,
 .workflow-step,
@@ -608,6 +637,7 @@ main > section + section::before {
 
 .pillar:hover,
 .solution-card:hover,
+.together-card:hover,
 .expertise-card:hover,
 .industry-card:hover {
     transform: translateY(-6px);
@@ -635,6 +665,7 @@ main > section + section::before {
 .pillar h3,
 .pillar h4,
 .solution-card h3,
+.together-card h3,
 .expertise-card h3 {
     font-size: 1.2rem;
     margin-bottom: 12px;
@@ -642,6 +673,7 @@ main > section + section::before {
 
 .pillar p,
 .solution-card p,
+.together-card p,
 .expertise-card p,
 .industry-card p {
     color: var(--text-muted);
@@ -766,6 +798,73 @@ main > section + section::before {
     font-size: 0.92rem;
 }
 
+/* ------------------------------------------------------------ Collaboration */
+.collab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 44px;
+}
+
+.collab-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.collab-item:hover {
+    border-color: var(--accent-line);
+    transform: translateY(-4px);
+}
+
+.collab-item i {
+    color: var(--accent);
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.collab-item span {
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.collab-emphasis {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+    justify-content: center;
+}
+
+.collab-emphasis span {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid var(--accent-line);
+    padding: 10px 18px;
+    border-radius: 999px;
+}
+
+/* ------------------------------------------------------------ Engagement */
+.engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 26px;
+}
+
+.together-card {
+    padding: 32px 28px;
+}
+
 /* ------------------------------------------------------------ Ecosystem */
 .ecosystem-grid {
     display: grid;
@@ -807,6 +906,21 @@ main > section + section::before {
     background: rgba(255, 255, 255, 0.025);
     border: 1px solid var(--border);
     color: var(--text-muted);
+}
+
+.additional-experience {
+    margin-top: 30px;
+    padding: 28px 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.additional-experience h4 {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 500;
 }
 
 /* ------------------------------------------------------------ Industries */
@@ -976,60 +1090,6 @@ main > section + section::before {
     font-weight: 700;
 }
 
-/* ------------------------------------------------------------ Skills */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
-}
-
-.skill-category {
-    padding: 32px 28px;
-}
-
-.skill-category:hover {
-    border-color: var(--accent-line);
-    transform: translateY(-4px);
-}
-
-.skill-category h3 {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-}
-
-.skill-category h3 i {
-    color: var(--accent);
-}
-
-.skill-category ul {
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-}
-
-.skill-category ul li {
-    position: relative;
-    padding-left: 20px;
-    font-size: 0.92rem;
-    color: var(--text-muted);
-}
-
-.skill-category ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 7px;
-    height: 7px;
-    border-radius: 2px;
-    background: var(--accent);
-}
-
 /* ------------------------------------------------------------ Featured case study */
 .featured-grid {
     display: grid;
@@ -1135,6 +1195,42 @@ main > section + section::before {
 
 .project-card:hover .project-img img {
     transform: scale(1.05);
+}
+
+/* Spec-panel visual for projects without a real screenshot (no stock photo implying hardware that wasn't built/photographed) */
+.project-visual {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background:
+        radial-gradient(600px 300px at 50% 0%, rgba(45, 212, 191, 0.10), transparent 60%),
+        var(--ground-2);
+    background-size: 24px 24px, auto;
+    background-image:
+        linear-gradient(rgba(45, 212, 191, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 212, 191, 0.06) 1px, transparent 1px);
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-visual {
+    transform: scale(1.05);
+}
+
+.project-visual i {
+    font-size: 2.4rem;
+    color: var(--accent);
+}
+
+.project-visual span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
 }
 
 .project-overlay {
@@ -1380,6 +1476,49 @@ main > section + section::before {
     color: var(--text);
 }
 
+/* ------------------------------------------------------------ Project form */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 26px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.form-field select,
+.form-field input,
+.form-field textarea {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--text);
+    background: var(--ground-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    width: 100%;
+    resize: vertical;
+}
+
+.form-field select:focus,
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent-line);
+}
+
 /* ------------------------------------------------------------ Footer */
 footer {
     border-top: 1px solid var(--border);
@@ -1580,40 +1719,6 @@ footer p {
     color: var(--text-dim);
 }
 
-/* ------------------------------------------------------------ Telemetry ticker */
-.telemetry-bar {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    background: var(--ground-2);
-    overflow: hidden;
-    padding: 12px 0;
-}
-
-.telemetry-track {
-    display: flex;
-    gap: 48px;
-    white-space: nowrap;
-    width: max-content;
-    animation: ticker 40s linear infinite;
-}
-
-.telemetry-track span {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: var(--text-dim);
-}
-
-.telemetry-track span::before {
-    content: '\25C6 ';
-    color: var(--accent);
-}
-
-@keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
 /* ------------------------------------------------------------ Reveal animation */
 .reveal {
     opacity: 0;
@@ -1647,7 +1752,8 @@ footer p {
     }
 
     .hero-image-container {
-        order: -1;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     .featured-grid,
